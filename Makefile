@@ -1,7 +1,7 @@
-NAME = weaveworksdemos/catalogue
-DBNAME = weaveworksdemos/catalogue-db
+NAME = abdvswmdr/soqonicatalogue
+DBNAME = abdvswmdr/soqonicatalogue-db
 
-TAG=$(TRAVIS_COMMIT)
+TAG=$(GIT_COMMIT)
 
 INSTANCE = catalogue
 

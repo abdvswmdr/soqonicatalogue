@@ -5,7 +5,7 @@ services:
         build:
             context: .
             dockerfile: ./docker/soqonicatalogue/Dockerfile
-        image: weaveworksdemos/catalogue-dev
+        image: abdvswmdr/soqonicatalogue-dev
         hostname: soqonicatalogue
         restart: always
         cap_drop:
@@ -21,7 +21,7 @@ services:
     soqonicatalogue-db:
         build:
             context: ./docker/soqonicatalogue-db/
-        image: weaveworksdemos/catalogue-dev-db
+        image: abdvswmdr/soqonicatalogue-db
         hostname: soqonicatalogue-db
         restart: always
         environment:
