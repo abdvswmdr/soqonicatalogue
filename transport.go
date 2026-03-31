@@ -4,6 +4,7 @@ package catalogue
 // In our case we just use a REST-y HTTP transport.
 
 import (
+	"context"
 	"encoding/json"
 	"net/http"
 	"strconv"

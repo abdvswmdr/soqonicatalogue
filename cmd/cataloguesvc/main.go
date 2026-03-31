@@ -22,7 +22,7 @@ import (
 	"github.com/abdvswmdr/soqonicatalogue"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/weaveworks/common/middleware"
-	"golang.org/x/net/context"
+	"context"
 )
 
 const (
