@@ -130,7 +130,7 @@ func main() {
 	endpoints := catalogue.MakeEndpoints(service, tracer)
 
 	// HTTP router
-	router := catalogue.MakeHTTPHandler(ctx, endpoints, *images, logger, tracer)
+	router := catalogue.MakeHTTPHandler(endpoints, *images, logger, tracer)
 
 	httpMiddleware := []middleware.Interface{
 		middleware.Instrument{
