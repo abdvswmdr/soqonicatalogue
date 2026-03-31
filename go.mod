@@ -1,6 +1,6 @@
 module github.com/abdvswmdr/soqonicatalogue
 
-go 1.22
+go 1.25.0
 
 require (
 	github.com/go-kit/kit v0.13.0

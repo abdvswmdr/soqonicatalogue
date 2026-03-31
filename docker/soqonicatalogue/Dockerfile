@@ -1,4 +1,4 @@
-FROM golang:1.22
+FROM golang:1.25
 
 WORKDIR /go/src/github.com/abdvswmdr/soqonicatalogue
 
