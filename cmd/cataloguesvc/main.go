@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-kit/kit/log"
 	stdopentracing "github.com/opentracing/opentracing-go"
-	zipkin "github.com/openzipkin/zipkin-go-opentracing"
+	zipkin "github.com/openzipkin-contrib/zipkin-go-opentracing"
 
 	"net"
 	"net/http"
@@ -66,8 +66,8 @@ func main() {
 	var logger log.Logger
 	{
 		logger = log.NewLogfmtLogger(os.Stderr)
-		logger = log.NewContext(logger).With("ts", log.DefaultTimestampUTC)
-		logger = log.NewContext(logger).With("caller", log.DefaultCaller)
+		logger = log.With(logger, "ts", log.DefaultTimestampUTC)
+		logger = log.With(logger, "caller", log.DefaultCaller)
 	}
 
 	var tracer stdopentracing.Tracer
@@ -84,7 +84,7 @@ func main() {
 			localAddr := conn.LocalAddr().(*net.UDPAddr)
 			host := strings.Split(localAddr.String(), ":")[0]
 			defer conn.Close()
-			logger := log.NewContext(logger).With("tracer", "Zipkin")
+			logger := log.With(logger, "tracer", "Zipkin")
 			logger.Log("addr", zip)
 			collector, err := zipkin.NewHTTPCollector(
 				*zip,
