@@ -30,6 +30,22 @@ pipeline {
                 echo 'this pipeline has completed...'
             }
         }
+
+        stage('docker') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKERHUB_USER',
+                    passwordVariable: 'DOCKERHUB_PASS'
+                )]) {
+                    sh """
+                    echo "\$DOCKERHUB_PASS" | docker login -u "\$DOCKERHUB_USER" --password-stdin
+                    docker push abdvswmdr/soqonicatalogue:latest
+                    docker push abdvswmdr/soqonicatalogue:${env.COMMIT}
+                    """
+                }
+            }
+        }
     }
 
     post {
