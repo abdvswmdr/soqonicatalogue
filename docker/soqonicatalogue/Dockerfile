@@ -1,4 +1,4 @@
-FROM golang:1.7
+FROM golang:1.21
 
 ARG user=app
 ARG group=app
@@ -9,14 +9,10 @@ RUN mkdir /app
 COPY . /go/src/github.com/microservices-demo/catalogue/
 COPY images/ /images/
 
-RUN go get -u github.com/FiloSottile/gvt
-RUN cd /go/src/github.com/microservices-demo/catalogue && gvt restore
-
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /app/main github.com/microservices-demo/catalogue/cmd/cataloguesvc
+RUN CGO_ENABLED=0 GOOS=linux go build -mod=vendor -a -installsuffix cgo -o /app/main github.com/microservices-demo/catalogue/cmd/cataloguesvc
 
 RUN groupadd -g ${gid} ${group} \
     && useradd  -u ${uid} -g ${gid} -m -s /bin/bash ${user}
-
 
 RUN chown -R ${user}:${group} /app/main /images
 
