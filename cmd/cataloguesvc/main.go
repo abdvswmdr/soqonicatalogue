@@ -1,28 +1,22 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
+	"net/http"
 	"os"
 	"os/signal"
-	"strings"
+	"path/filepath"
 	"syscall"
 
-	"github.com/go-kit/kit/log"
-	stdopentracing "github.com/opentracing/opentracing-go"
-	zipkin "github.com/openzipkin-contrib/zipkin-go-opentracing"
-
-	"net"
-	"net/http"
-
-	"path/filepath"
-
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/go-kit/kit/log"
 	"github.com/jmoiron/sqlx"
-	"github.com/abdvswmdr/soqonicatalogue"
+	stdopentracing "github.com/opentracing/opentracing-go"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/weaveworks/common/middleware"
-	"context"
+	"github.com/abdvswmdr/soqonicatalogue"
 )
 
 const (
@@ -46,7 +40,7 @@ func main() {
 		port   = flag.String("port", "8081", "Port to bind HTTP listener") // TODO(pb): should be -addr, default ":8081"
 		images = flag.String("images", "./images/", "Image path")
 		dsn    = flag.String("DSN", "catalogue_user:default_password@tcp(catalogue-db:3306)/socksdb", "Data Source Name: [username[:password]@][protocol[(address)]]/dbname")
-		zip    = flag.String("zipkin", os.Getenv("ZIPKIN"), "Zipkin address")
+		// zip = flag.String("zipkin", os.Getenv("ZIPKIN"), "Zipkin address") // TODO: re-enable with updated zipkin API
 	)
 	flag.Parse()
 
@@ -60,7 +54,7 @@ func main() {
 
 	// Mechanical stuff.
 	errc := make(chan error)
-	ctx := context.Background()
+	_ = context.Background()
 
 	// Log domain.
 	var logger log.Logger
