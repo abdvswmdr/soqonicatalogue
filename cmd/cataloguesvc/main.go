@@ -72,36 +72,14 @@ func main() {
 
 	var tracer stdopentracing.Tracer
 	{
-		if *zip == "" {
-			tracer = stdopentracing.NoopTracer{}
-		} else {
-			// Find service local IP.
-			conn, err := net.Dial("udp", "8.8.8.8:80")
-			if err != nil {
-				logger.Log("err", err)
-				os.Exit(1)
-			}
-			localAddr := conn.LocalAddr().(*net.UDPAddr)
-			host := strings.Split(localAddr.String(), ":")[0]
-			defer conn.Close()
-			logger := log.With(logger, "tracer", "Zipkin")
-			logger.Log("addr", zip)
-			collector, err := zipkin.NewHTTPCollector(
-				*zip,
-				zipkin.HTTPLogger(logger),
-			)
-			if err != nil {
-				logger.Log("err", err)
-				os.Exit(1)
-			}
-			tracer, err = zipkin.NewTracer(
-				zipkin.NewRecorder(collector, false, fmt.Sprintf("%v:%v", host, port), ServiceName),
-			)
-			if err != nil {
-				logger.Log("err", err)
-				os.Exit(1)
-			}
-		}
+		tracer = stdopentracing.NoopTracer{}
+		// TODO: re-wire Zipkin tracing with updated openzipkin-contrib API
+		// if *zip != "" {
+		// 	conn, err := net.Dial("udp", "8.8.8.8:80")
+		// 	...
+		// 	collector, err := zipkin.NewHTTPCollector(*zip, zipkin.HTTPLogger(logger))
+		// 	tracer, err = zipkin.NewTracer(zipkin.NewRecorder(collector, false, host+":"+*port, ServiceName))
+		// }
 		stdopentracing.InitGlobalTracer(tracer)
 	}
 
