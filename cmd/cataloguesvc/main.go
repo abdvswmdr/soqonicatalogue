@@ -29,10 +29,27 @@ var (
 		Help:    "Time (in seconds) spent serving HTTP requests.",
 		Buckets: prometheus.DefBuckets,
 	}, []string{"method", "route", "status_code", "isWS"})
+
+	InflightRequests = prometheus.NewGaugeVec(prometheus.GaugeOpts{
+		Name: "inflight_requests",
+		Help: "Number of inflight requests being handled.",
+	}, []string{"method", "route"})
+
+	RequestBodySize = prometheus.NewHistogramVec(prometheus.HistogramOpts{
+		Name:    "request_body_size_bytes",
+		Help:    "Size of HTTP request bodies.",
+		Buckets: middleware.BodySizeBuckets,
+	}, []string{"method", "route"})
+
+	ResponseBodySize = prometheus.NewHistogramVec(prometheus.HistogramOpts{
+		Name:    "response_body_size_bytes",
+		Help:    "Size of HTTP response bodies.",
+		Buckets: middleware.BodySizeBuckets,
+	}, []string{"method", "route"})
 )
 
 func init() {
-	prometheus.MustRegister(HTTPLatency)
+	prometheus.MustRegister(HTTPLatency, InflightRequests, RequestBodySize, ResponseBodySize)
 }
 
 func main() {
@@ -106,8 +123,11 @@ func main() {
 
 	httpMiddleware := []middleware.Interface{
 		middleware.Instrument{
-			Duration:     HTTPLatency,
-			RouteMatcher: router,
+			Duration:         HTTPLatency,
+			RouteMatcher:     router,
+			InflightRequests: InflightRequests,
+			RequestBodySize:  RequestBodySize,
+			ResponseBodySize: ResponseBodySize,
 		},
 	}
 
