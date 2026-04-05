@@ -30,48 +30,79 @@ CREATE TABLE IF NOT EXISTS sock_tag (
 		REFERENCES tag(tag_id)
 );
 
-INSERT INTO sock VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "iphone X", "The premimum most and luxurious phone from the Apple stable. This is the most coveted one...", 7.99, 115, "/catalogue/images/iphone-x-01.jpeg", "/catalogue/images/iphone-x-01.jpeg");
-INSERT INTO sock VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "Moto G5s Plus", "The latest mobile from Motorola",  17.32, 738, "/catalogue/images/moto-g5s-plus-01.png", "/catalogue/images/moto-g5s-plus-02.jpeg");
-INSERT INTO sock VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "Google Pixel", "Best camera phone from Google.",  15.00, 820, "/catalogue/images/google-pixel-2.png", "/catalogue/images/google-pixel-2.png");
-INSERT INTO sock VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "Moto G3", "A Classic favourite from Motorola.",  99.99, 1, "/catalogue/images/moto-g3-01.jpeg", "/catalogue/images/moto-g3-02.JPG");
-INSERT INTO sock VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "Moto G5", "Moto G5 is a popular mobile from Motorola.",  10.99, 801, "/catalogue/images/moto-g5.jpg", "/catalogue/images/moto-g5.jpg");
-INSERT INTO sock VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "Xiomi A1", "enim officia aliqua excepteur esse deserunt quis aliquip nostrud anim",  14, 808, "/catalogue/images/mi-a1-1.jpg", "/catalogue/images/mi-a1-1.jpg");
-INSERT INTO sock VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "Galaxy S8", "Keep it simple.",  12, 127, "/catalogue/images/samsung-galaxy-s8.jpg", "/catalogue/images/samsung-galaxy-s8.jpg");
-INSERT INTO sock VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "Galaxy S6", "proident occaecat irure et excepteur labore minim nisi amet irure",  18, 438, "/catalogue/images/s6edge.jpg", "/catalogue/images/s6edge.jpg");
-INSERT INTO sock VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "Redmi Note4", "consequat amet cupidatat minim laborum tempor elit ex consequat in",  15, 175, "/catalogue/images/redmi-note4-01.jpg", "/catalogue/images/redmi-note4-02.JPG");
+INSERT INTO sock VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "Arduino Uno R3", "The classic 8-bit AVR microcontroller board. 14 digital I/O pins, 6 PWM outputs, 6 analog inputs. The standard starting point for embedded systems.", 12.99, 200, "/catalogue/images/arduino-uno.jpg", "/catalogue/images/arduino-uno-2.jpg");
+INSERT INTO sock VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "Raspberry Pi 4B 4GB", "Quad-core Cortex-A72 at 1.8GHz, 4GB LPDDR4, dual 4K HDMI, USB 3.0, Gigabit Ethernet, WiFi, Bluetooth 5.0.", 55.00, 85, "/catalogue/images/rpi4b.jpg", "/catalogue/images/rpi4b-2.jpg");
+INSERT INTO sock VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "ESP32 Dev Board", "Dual-core 240MHz Xtensa LX6, 520KB SRAM, integrated 802.11b/g/n WiFi and Bluetooth 4.2. Ideal for IoT projects.", 8.50, 320, "/catalogue/images/esp32-devboard.jpg", "/catalogue/images/esp32-devboard-2.jpg");
+INSERT INTO sock VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "STM32 Nucleo-64", "ARM Cortex-M4 at 80MHz, 1MB Flash, 128KB SRAM. Arduino-compatible headers, built-in ST-LINK debugger.", 18.00, 60, "/catalogue/images/stm32-nucleo.jpg", "/catalogue/images/stm32-nucleo-2.jpg");
+INSERT INTO sock VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "Raspberry Pi Pico", "RP2040 dual-core Cortex-M0+ at 133MHz, 264KB SRAM, 2MB Flash, 26 GPIO pins. Ultra-low cost microcontroller.", 4.00, 500, "/catalogue/images/rpi-pico.jpg", "/catalogue/images/rpi-pico-2.jpg");
+INSERT INTO sock VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "NodeMCU ESP8266", "ESP8266 802.11 b/g/n WiFi SoC, 80/160MHz, 4MB Flash, 11 digital I/O pins. The go-to board for low-cost WiFi projects.", 5.99, 450, "/catalogue/images/nodemcu-esp8266.jpg", "/catalogue/images/nodemcu-esp8266.jpg");
+INSERT INTO sock VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "Arduino Mega 2560", "ATmega2560 at 16MHz, 256KB Flash, 54 digital I/O, 16 analog inputs, 4 UARTs. For projects needing more pins.", 22.00, 110, "/catalogue/images/arduino-mega.jpg", "/catalogue/images/arduino-mega-2.jpg");
+INSERT INTO sock VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "Jetson Nano", "NVIDIA Maxwell 128-core GPU, quad-core Cortex-A57, 4GB LPDDR4. Runs CUDA, TensorFlow, PyTorch for edge AI.", 99.00, 30, "/catalogue/images/jetson-nano.jpg", "/catalogue/images/jetson-nano-2.jpg");
+INSERT INTO sock VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "BeagleBone Black", "AM335x 1GHz ARM Cortex-A8, 512MB DDR3, 4GB eMMC, 92 expansion pins, PRU real-time coprocessors.", 45.00, 50, "/catalogue/images/beaglebone-black.jpg", "/catalogue/images/beaglebone-black-2.jpg");
 
-INSERT INTO tag (name) VALUES ("4G Volte");
-INSERT INTO tag (name) VALUES ("Dual Camera");
-INSERT INTO tag (name) VALUES ("4GB RAM");
-INSERT INTO tag (name) VALUES ("Black");
-INSERT INTO tag (name) VALUES ("Silver");
-INSERT INTO tag (name) VALUES ("White");
-INSERT INTO tag (name) VALUES ("Xiomi");
-INSERT INTO tag (name) VALUES ("Motorola");
-INSERT INTO tag (name) VALUES ("Samsung");
-INSERT INTO tag (name) VALUES ("Apple");
-INSERT INTO tag (name) VALUES ("Google");
+INSERT INTO tag (name) VALUES ("Microcontroller");
+INSERT INTO tag (name) VALUES ("SBC");
+INSERT INTO tag (name) VALUES ("WiFi");
+INSERT INTO tag (name) VALUES ("Bluetooth");
+INSERT INTO tag (name) VALUES ("ARM");
+INSERT INTO tag (name) VALUES ("5V");
+INSERT INTO tag (name) VALUES ("3.3V");
+INSERT INTO tag (name) VALUES ("Arduino");
+INSERT INTO tag (name) VALUES ("Raspberry Pi");
+INSERT INTO tag (name) VALUES ("Espressif");
+INSERT INTO tag (name) VALUES ("Beginner");
+INSERT INTO tag (name) VALUES ("AI");
 
-INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "10");
-INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "5");
-INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "8");
-INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "4");
-INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "1");
+-- Arduino Uno R3
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "1");
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "6");
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "8");
+INSERT INTO sock_tag VALUES ("a0a4f044-b040-410d-8ead-4de0446aec7e", "11");
+
+-- Raspberry Pi 4B
+INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "2");
 INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "3");
-INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "11");
-INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "2");
+INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "4");
+INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "5");
+INSERT INTO sock_tag VALUES ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "9");
+
+-- ESP32 Dev Board
+INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "1");
 INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "3");
-INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "8");
-INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "4");
-INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "8");
-INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "2");
-INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "7");
+INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "4");
+INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "7");
+INSERT INTO sock_tag VALUES ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "10");
+
+-- STM32 Nucleo-64
+INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "1");
+INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "5");
+INSERT INTO sock_tag VALUES ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "7");
+
+-- Raspberry Pi Pico
+INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "1");
+INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "5");
+INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "7");
+INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "9");
+INSERT INTO sock_tag VALUES ("d3588630-ad8e-49df-bbd7-3167f7efb246", "11");
+
+-- NodeMCU ESP8266
+INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "1");
 INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "3");
-INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "4");
-INSERT INTO sock_tag VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "9");
+INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "7");
+INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "10");
+INSERT INTO sock_tag VALUES ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "11");
+
+-- Arduino Mega 2560
 INSERT INTO sock_tag VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "1");
-INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "9");
-INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "1");
-INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "7");
-INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "6");
-INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "3");
+INSERT INTO sock_tag VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "6");
+INSERT INTO sock_tag VALUES ("zzz4f044-b040-410d-8ead-4de0446aec7e", "8");
+
+-- Jetson Nano
+INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "2");
+INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "5");
+INSERT INTO sock_tag VALUES ("3395a43e-2d88-40de-b95f-e00e1502085b", "12");
+
+-- BeagleBone Black
+INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "2");
+INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "1");
+INSERT INTO sock_tag VALUES ("837ab141-399e-4c1f-9abc-bace40296bac", "5");
