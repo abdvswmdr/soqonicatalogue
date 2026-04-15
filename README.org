@@ -1,0 +1,136 @@
+#+HTML: <p><a href="LICENSE"><img alt="License: GPLv3" src="https://img.shields.io/badge/License-GPLv3-blue.svg"></a> &nbsp; <img alt="Go" src="https://img.shields.io/badge/Go-1.25-00ADD8?logo=go&logoColor=white"> &nbsp; <img alt="MySQL" src="https://img.shields.io/badge/MySQL-5.7-4479A1?logo=mysql&logoColor=white"> &nbsp; <a href="https://hub.docker.com/r/abdvswmdr/soqonicatalogue"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/abdvswmdr/soqonicatalogue"></a> &nbsp; <a href="https://hub.docker.com/r/abdvswmdr/soqonicatalogue"><img alt="Image Size" src="https://img.shields.io/docker/image-size/abdvswmdr/soqonicatalogue/latest"></a></p>
+
+* soqonicatalogue
+
+Go 1.25 microservice providing the product catalogue REST API for the [[https://github.com/abdvswmdr/soqoni][Soqoni]] e-commerce platform. Backed by MySQL with a many-to-many product/tag schema. Ships as a ~15MB Alpine Linux container via multi-stage build.
+
+#+attr_html: :width 900px :align center :alt "Catalogue API demo"
+[[file:docs/demo.gif]]
+
+** Contents
+
+- [[#features][Features]]
+- [[#api][API]]
+- [[#architecture][Architecture]]
+- [[#quickstart][Quickstart]]
+- [[#environment-variables][Environment Variables]]
+- [[#build][Build]]
+- [[#development][Development]]
+- [[#database-schema][Database Schema]]
+- [[#cicd][CI/CD]]
+- [[#roadmap][Roadmap]]
+- [[#license][License]]
+
+** Features
+
+- Pure Go HTTP server — no framework overhead, sub-15MB production image
+- Tag-based product filtering with many-to-many SQL schema
+- Multi-stage Docker build: ~golang:1.25~ builder → ~alpine:3.19~ runtime
+- Vendored dependencies — reproducible builds without network access
+- Readiness and liveness probes for zero-downtime Kubernetes rolling updates
+- Kubernetes-native: ClusterIP service, Ingress routing, HPA-ready
+
+** API
+
+| Endpoint | Method | Description |
+|---|---|---|
+| ~/catalogue~ | GET | List products (~?tags=~, ~?page=~, ~?size=~ supported) |
+| ~/catalogue/{id}~ | GET | Get product by ID |
+| ~/catalogue/size~ | GET | Total product count |
+| ~/catalogue/tags~ | GET | All available tags |
+| ~/health~ | GET | Liveness check |
+
+#+BEGIN_SRC bash
+# List all products
+curl http://localhost:80/catalogue
+
+# Filter by tag
+curl 'http://localhost:80/catalogue?tags=iot'
+
+# Health check
+curl http://localhost:80/health
+#+END_SRC
+
+** Architecture
+
+#+attr_html: :width 900px :align center :alt "Catalogue service architecture"
+[[file:docs/architecture.png]]
+
+#+BEGIN_COMMENT
+PlantUML diagram coming soon.
+  soqonifrontend → GET /catalogue/* → soqonicatalogue:80 → MySQL (socksdb)
+  Tables: sock, tag, sock_tag (junction — many-to-many)
+#+END_COMMENT
+
+** Quickstart
+
+#+BEGIN_SRC bash
+docker run -p 8080:80 \
+  -e ZIPKIN_ENABLED=false \
+  -e DSN="user:pass@tcp(localhost:3306)/socksdb" \
+  abdvswmdr/soqonicatalogue:latest
+#+END_SRC
+
+A MySQL 5.7 instance with the ~socksdb~ schema is required. See [[file:docker/soqonicatalogue-db][docker/soqonicatalogue-db]] for the database image with seed data.
+
+** Environment Variables
+
+| Variable | Default | Description |
+|---|---|---|
+| ~DSN~ | — | MySQL DSN: ~user:pass@tcp(host:3306)/db~ |
+| ~PORT~ | ~80~ | Port this service listens on |
+| ~ZIPKIN_ENABLED~ | ~false~ | Enable Zipkin distributed tracing |
+| ~ZIPKIN_HOST~ | ~zipkin~ | Zipkin server hostname |
+
+** Build
+
+#+BEGIN_SRC bash
+# Run tests
+go test ./...
+
+# Build production image with versioned tag
+TAG=$(git rev-parse --short HEAD)
+docker build -t abdvswmdr/soqonicatalogue:$TAG \
+  -f docker/soqonicatalogue/Dockerfile-release .
+docker push abdvswmdr/soqonicatalogue:$TAG
+#+END_SRC
+
+** Development
+
+#+BEGIN_SRC bash
+git clone https://github.com/abdvswmdr/soqonicatalogue
+cd soqonicatalogue
+go mod download
+
+# Run against a local MySQL instance
+DSN="catalogue_user:pass@tcp(localhost:3306)/socksdb" go run cmd/cataloguesvc/main.go
+#+END_SRC
+
+Requires Go 1.25+.
+
+** Database Schema
+
+#+attr_html: :width 600px :align center :alt "ER diagram"
+[[file:docs/er-diagram.png]]
+
+#+BEGIN_COMMENT
+PlantUML ER diagram coming soon.
+#+END_COMMENT
+
+Three tables in the ~socksdb~ database:
+
+- ~sock~ — product records (id, name, description, price, count, image_url)
+- ~tag~ — product tags
+- ~sock_tag~ — junction table for the many-to-many product/tag relationship
+
+** CI/CD
+
+Jenkins pipeline (~Jenkinsfile~) runs on every push to ~main~:
+
+1. *Test* — ~go test ./...~
+2. *Build* — ~go build~ + ~docker build~ with git SHA tag
+3. *Push* — ~docker push~ to [[https://hub.docker.com/r/abdvswmdr/soqonicatalogue][Docker Hub]]
+
+** License
+
+[[LICENSE][GNU General Public License v3.0]]

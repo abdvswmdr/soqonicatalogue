@@ -1,0 +1,32 @@
+@startuml c3-catalogue-component
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/exchange_alt.puml
+!include FONTAWESOME/layer_group.puml
+!include FONTAWESOME/database.puml
+!include FONTAWESOME/file_alt.puml
+!include <logos/go>
+!include <logos/mysql>
+
+LAYOUT_WITH_LEGEND()
+title soqonicatalogue — Component Diagram
+
+Person(frontend, "soqonifrontend", "Calls catalogue API via HTTP")
+System_Ext(mysql, "Azure MySQL (socksdb)", "sock, tag, sock_tag tables", $sprite="mysql")
+
+Container_Boundary(catalogue, "soqonicatalogue (Go 1.25)") {
+    Component(transport, "HTTP Transport", "go-kit httptransport", "Decodes HTTP requests, encodes JSON responses\nRoutes: GET /catalogue, /catalogue/{id}, /tags, /health, /metrics", $sprite="exchange_alt")
+    Component(endpoints, "Endpoints", "go-kit endpoint.Endpoint", "Wraps service methods as endpoint functions\nApplies logging middleware per endpoint", $sprite="layer_group")
+    Component(service, "Catalogue Service", "Go interface + impl", "Business logic: list all, get by ID, count, list tags\nApplies tag filter, validates IDs", $sprite="go")
+    Component(logging, "Logging Middleware", "go-kit log", "Wraps every service call\nLogs: method, result count, took duration", $sprite="file_alt")
+    Component(repo, "Database Repository", "Go / database/sql", "Parameterised SQL queries\nManages connection pool\nDSN injected via catalogue-secret", $sprite="database")
+}
+
+Rel(frontend, transport, "GET /catalogue, /catalogue/{id}, /tags", "HTTP JSON")
+Rel(transport, endpoints, "Calls decoded request")
+Rel(endpoints, logging, "Wrapped by")
+Rel(endpoints, service, "Calls service method")
+Rel(service, repo, "Queries")
+Rel(repo, mysql, "SELECT queries", "TCP 3306 TLS")
+
+@enduml
