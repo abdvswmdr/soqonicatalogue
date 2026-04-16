@@ -85,7 +85,7 @@ func TestCatalogueServiceList(t *testing.T) {
 			want:     []Sock{s5},
 		},
 	} {
-		have, err := s.List(testcase.tags, testcase.order, testcase.pageNum, testcase.pageSize)
+		have, err := s.List(testcase.tags, testcase.order, testcase.pageNum, testcase.pageSize, "USD")
 		if err != nil {
 			t.Errorf(
 				"List(%v, %s, %d, %d): returned error %s",
@@ -165,7 +165,7 @@ func TestCatalogueServiceGet(t *testing.T) {
 			"0",
 		} {
 			want := ErrNotFound
-			if _, have := s.Get(id); want != have {
+			if _, have := s.Get(id, "USD"); want != have {
 				t.Errorf("Get(%s): want %v, have %v", id, want, have)
 			}
 		}
@@ -175,7 +175,7 @@ func TestCatalogueServiceGet(t *testing.T) {
 		for id, want := range map[string]Sock{
 			"3": s3,
 		} {
-			have, err := s.Get(id)
+			have, err := s.Get(id, "USD")
 			if err != nil {
 				t.Errorf("Get(%s): %v", id, err)
 				continue
