@@ -120,15 +120,15 @@ func (s *catalogueService) List(tags []string, order string, pageNum, pageSize i
 
 	socks = cut(socks, pageNum, pageSize)
 
-	return socks, nil
-	
-	// Conversion Logic (currency)
 	rate := ExchangeRates[strings.ToUpper(currency)]
-	if rate == 0 { rate = 1.0 } // Default to USD if currency is unknown
-
+	if rate == 0 {
+		rate = 1.0
+	}
 	for i := range socks {
 		socks[i].Price = socks[i].Price * rate
 	}
+
+	return socks, nil
 }
 
 func (s *catalogueService) Count(tags []string) (int, error) {
