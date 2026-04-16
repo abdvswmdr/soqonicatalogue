@@ -80,6 +80,7 @@ type listRequest struct {
 	Order    string   `json:"order"`
 	PageNum  int      `json:"pageNum"`
 	PageSize int      `json:"pageSize"`
+	Currency string   `json:"currency"`
 }
 
 type listResponse struct {
