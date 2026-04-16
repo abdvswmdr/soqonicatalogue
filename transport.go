@@ -172,6 +172,10 @@ func encodeGetResponse(ctx context.Context, w http.ResponseWriter, response inte
 	return encodeResponse(ctx, w, resp.Sock)
 }
 
+func decodeTagsRequest(_ context.Context, r *http.Request) (interface{}, error) {
+	return struct{}{}, nil
+}
+
 func decodeHealthRequest(_ context.Context, r *http.Request) (interface{}, error) {
 	return struct{}{}, nil
 }
