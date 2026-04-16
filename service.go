@@ -12,12 +12,24 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
+var ExchangeRates = map[string]float32{
+	"USD": 1.0,
+	"KES": 130.0, // Current approximate rate
+	"EUR": 0.92,
+}
+
+var CurrencySymbols = map[string]string{
+	"USD": "$",
+	"KES": "KSh",
+	"EUR": "€",
+}
+
 // Service is the catalogue service, providing read operations on a saleable
 // catalogue of sock products.
 type Service interface {
-	List(tags []string, order string, pageNum, pageSize int) ([]Sock, error) // GET /catalogue
+	List(tags []string, order string, pageNum, pageSize int, currency string) ([]Sock, error) // GET /catalogue
+	Get(id string, currency string) (Sock, error)                                             // GET /catalogue/{id}
 	Count(tags []string) (int, error)                                        // GET /catalogue/size
-	Get(id string) (Sock, error)                                             // GET /catalogue/{id}
 	Tags() ([]string, error)                                                 // GET /tags
 	Health() []Health                                                        // GET /health
 }
@@ -68,7 +80,7 @@ type catalogueService struct {
 	logger log.Logger
 }
 
-func (s *catalogueService) List(tags []string, order string, pageNum, pageSize int) ([]Sock, error) {
+func (s *catalogueService) List(tags []string, order string, pageNum, pageSize int, currency string) ([]Sock, error) {
 	var socks []Sock
 	query := baseQuery
 
@@ -109,6 +121,14 @@ func (s *catalogueService) List(tags []string, order string, pageNum, pageSize i
 	socks = cut(socks, pageNum, pageSize)
 
 	return socks, nil
+	
+	// Conversion Logic (currency)
+	rate := ExchangeRates[strings.ToUpper(currency)]
+	if rate == 0 { rate = 1.0 } // Default to USD if currency is unknown
+
+	for i := range socks {
+		socks[i].Price = socks[i].Price * rate
+	}
 }
 
 func (s *catalogueService) Count(tags []string) (int, error) {
@@ -147,7 +167,7 @@ func (s *catalogueService) Count(tags []string) (int, error) {
 	return count, nil
 }
 
-func (s *catalogueService) Get(id string) (Sock, error) {
+func (s *catalogueService) Get(id string, currency string) (Sock, error) { // Added currency param
 	query := baseQuery + " WHERE sock.sock_id =? GROUP BY sock.sock_id;"
 
 	var sock Sock
@@ -156,6 +176,13 @@ func (s *catalogueService) Get(id string) (Sock, error) {
 		s.logger.Log("database error", err)
 		return Sock{}, ErrNotFound
 	}
+
+	// Conversion Logic
+	rate := ExchangeRates[strings.ToUpper(currency)]
+	if rate == 0 {
+		rate = 1.0 // Default to USD
+	}
+	sock.Price = sock.Price * rate
 
 	sock.ImageURL = []string{sock.ImageURL_1, sock.ImageURL_2}
 	sock.Tags = strings.Split(sock.TagString, ",")

@@ -54,7 +54,7 @@ func MakeCountEndpoint(s Service) endpoint.Endpoint {
 func MakeGetEndpoint(s Service) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
 		req := request.(getRequest)
-		sock, err := s.Get(req.ID)
+		sock, err := s.Get(req.ID, req.Currency)
 		return getResponse{Sock: sock, Err: err}, err
 	}
 }
@@ -98,6 +98,7 @@ type countResponse struct {
 
 type getRequest struct {
 	ID string `json:"id"`
+	Currency string `json:"currency"` 
 }
 
 type getResponse struct {

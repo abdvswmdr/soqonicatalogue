@@ -111,6 +111,10 @@ func decodeListRequest(_ context.Context, r *http.Request) (interface{}, error) 
 	if size := r.FormValue("size"); size != "" {
 		pageSize, _ = strconv.Atoi(size)
 	}
+	currency := r.FormValue("currency")
+	if currency == "" {
+		currency = "USD"
+	}
 	order := "id"
 	if sort := r.FormValue("sort"); sort != "" {
 		order = strings.ToLower(sort)
@@ -124,6 +128,7 @@ func decodeListRequest(_ context.Context, r *http.Request) (interface{}, error) 
 		Order:    order,
 		PageNum:  pageNum,
 		PageSize: pageSize,
+		Currency: currency, 
 	}, nil
 }
 
@@ -146,8 +151,13 @@ func decodeCountRequest(_ context.Context, r *http.Request) (interface{}, error)
 }
 
 func decodeGetRequest(_ context.Context, r *http.Request) (interface{}, error) {
+	currency := r.FormValue("currency")
+	if currency == "" {
+		currency = "USD"
+	}
 	return getRequest{
-		ID: mux.Vars(r)["id"],
+		ID:       mux.Vars(r)["id"],
+		Currency: currency,
 	}, nil
 }
 
@@ -160,10 +170,6 @@ func encodeGetResponse(ctx context.Context, w http.ResponseWriter, response inte
 		return nil
 	}
 	return encodeResponse(ctx, w, resp.Sock)
-}
-
-func decodeTagsRequest(_ context.Context, r *http.Request) (interface{}, error) {
-	return struct{}{}, nil
 }
 
 func decodeHealthRequest(_ context.Context, r *http.Request) (interface{}, error) {
@@ -179,3 +185,4 @@ func encodeResponse(_ context.Context, w http.ResponseWriter, response interface
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	return json.NewEncoder(w).Encode(response)
 }
+
