@@ -36,7 +36,7 @@ func MakeEndpoints(s Service, tracer stdopentracing.Tracer) Endpoints {
 func MakeListEndpoint(s Service) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
 		req := request.(listRequest)
-		socks, err := s.List(req.Tags, req.Order, req.PageNum, req.PageSize)
+		socks, err := s.List(req.Tags, req.Order, req.PageNum, req.PageSize, req.Currency)
 		return listResponse{Socks: socks, Err: err}, err
 	}
 }
