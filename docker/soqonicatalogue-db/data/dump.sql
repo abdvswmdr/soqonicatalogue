@@ -685,10 +685,6 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('819e1fbf-8b
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('819e1fbf-8b7e-4f6d-811f-693534916a8b', '/catalogue/images/esp32-devboard-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('zzz4f044-b040-410d-8ead-4de0446aec7e', '/catalogue/images/arduino-mega.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('zzz4f044-b040-410d-8ead-4de0446aec7e', '/catalogue/images/arduino-mega-2.jpg', 2);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/jetson-nano.jpg', 1);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/jetson-nano-2.jpg', 2);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/beaglebone-black.jpg', 1);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/beaglebone-black-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000010-0000-4000-a000-000000000010', '/catalogue/images/arduino-uno.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000010-0000-4000-a000-000000000010', '/catalogue/images/arduino-uno-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000011-0000-4000-a000-000000000011', '/catalogue/images/arduino-uno-2.jpg', 1);
@@ -721,8 +717,6 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000024-00
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000024-0000-4000-a000-000000000024', '/catalogue/images/rpi-pico.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000025-0000-4000-a000-000000000025', '/catalogue/images/stm32-nucleo.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000025-0000-4000-a000-000000000025', '/catalogue/images/stm32-nucleo-2.jpg', 2);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/arduino-uno.jpg', 1);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/arduino-uno-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000027-0000-4000-a000-000000000027', '/catalogue/images/arduino-mega.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000027-0000-4000-a000-000000000027', '/catalogue/images/arduino-mega-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000028-0000-4000-a000-000000000028', '/catalogue/images/arduino-uno.jpg', 1);
@@ -755,8 +749,6 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000011-00
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000011-0000-4000-a000-000000000011', '/catalogue/images/rpi-pico-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000012-0000-4000-a000-000000000012', '/catalogue/images/arduino-uno-2.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000012-0000-4000-a000-000000000012', '/catalogue/images/arduino-uno.jpg', 2);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/arduino-uno.jpg', 1);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/arduino-uno-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000014-0000-4000-a000-000000000014', '/catalogue/images/rpi-pico.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000014-0000-4000-a000-000000000014', '/catalogue/images/rpi-pico-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000015-0000-4000-a000-000000000015', '/catalogue/images/stm32-nucleo.jpg', 1);
@@ -878,33 +870,33 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000029-00
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000029-0000-4000-a000-000000000029', '/catalogue/images/products/l298n/l298n-6.jpg', 6);
 
 -- image insert: BeagleBone Black AM335x 1GHz Cortex-A8 SBC (beaglebone)
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-1.jpg', 3);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-2.jpg', 4);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-3.jpg', 5);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-4.jpg', 6);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-5.jpg', 7);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-1.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-3.jpg', 3);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-4.jpg', 4);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('837ab141-399e-4c1f-9abc-bace40296bac', '/catalogue/images/products/beaglebone/beaglebone-5.jpg', 5);
 
 -- image insert: SSD1306 0.96in OLED 128x64 Pixel I2C Display (oled096)
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-1.jpg', 3);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-2.jpg', 4);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-3.jpg', 5);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-4.png', 6);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-5.jpg', 7);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-1.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-3.jpg', 3);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-4.png', 4);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000026-0000-4000-a000-000000000026', '/catalogue/images/products/oled096/oled096-5.jpg', 5);
 
 -- image insert: 1.8in TFT ST7735 128x160 SPI Color Display Module (tftst7735)
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-1.jpg', 3);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-2.jpg', 4);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-3.jpg', 5);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-4.jpg', 6);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-5.png', 7);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-6.jpg', 8);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-7.jpg', 9);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-8.jpg', 10);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-1.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-3.jpg', 3);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-4.jpg', 4);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-5.png', 5);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-6.jpg', 6);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-7.jpg', 7);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000013-0000-4000-a000-000000000013', '/catalogue/images/products/tftst7735/tftst7735-8.jpg', 8);
 
 -- image insert: Jetson Nano Dev Kit 128-Core Maxwell GPU 4GB (jetson128)
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-1.jpg', 3);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-2.jpg', 4);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-3.jpg', 5);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-4.jpg', 6);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-5.jpg', 7);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-6.jpg', 8);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-1.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-3.jpg', 3);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-4.jpg', 4);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-5.jpg', 5);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-6.jpg', 6);
