@@ -905,3 +905,18 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-18
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/products/stm32nucleo/stm32nucleo-3.jpg', 3);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/products/stm32nucleo/stm32nucleo-4.jpg', 4);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/products/stm32nucleo/stm32nucleo-5.jpg', 5);
+
+-- ── Users table (soqonifrontend auth) ────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS users (
+    id         varchar(36)  NOT NULL,
+    username   varchar(50)  NOT NULL,
+    email      varchar(100) NOT NULL,
+    first_name varchar(50)  NOT NULL DEFAULT '',
+    last_name  varchar(50)  NOT NULL DEFAULT '',
+    password   varchar(100) NOT NULL,
+    created_at datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY users_username_uk (username),
+    UNIQUE KEY users_email_uk (email)
+);
