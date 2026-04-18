@@ -45,16 +45,23 @@ patch_manifests() {
     fi
     echo "==> Patching k8s manifests with tag $TAG"
     sed -i "s|image: $APP_IMAGE:.*|image: $APP_IMAGE:$TAG|g" "$K8S_DIR/catalogue.yaml"
-    sed -i "s|image: $DB_IMAGE:.*|image: $DB_IMAGE:$TAG|g"   "$K8S_DIR/catalogue-db.yaml"
-    echo "    catalogue.yaml    -> $APP_IMAGE:$TAG"
-    echo "    catalogue-db.yaml -> $DB_IMAGE:$TAG"
+    sed -i "s|image: $DB_IMAGE:.*|image: $DB_IMAGE:$TAG|g"   "$K8S_DIR/mysql.yaml"
+    echo "    catalogue.yaml -> $APP_IMAGE:$TAG"
+    echo "    mysql.yaml     -> $DB_IMAGE:$TAG"
 }
 
 if [ "$LOCAL_ONLY" = true ]; then
-    echo "==> Loading images into minikube"
-    minikube image load "$APP_IMAGE:$TAG"
-    minikube image load "$DB_IMAGE:$TAG"
+    echo "==> Loading images into minikube (overwrite)"
+    minikube image load --overwrite=true "$APP_IMAGE:$TAG"
+    minikube image load --overwrite=true "$DB_IMAGE:$TAG"
     patch_manifests
+    echo "==> Applying manifests"
+    kubectl apply -f "$K8S_DIR/catalogue.yaml" -f "$K8S_DIR/mysql.yaml"
+    echo "==> Restarting deployments to pick up new images"
+    kubectl rollout restart deployment/catalogue
+    kubectl rollout restart deployment/catalogue-db
+    kubectl rollout status deployment/catalogue
+    kubectl rollout status deployment/catalogue-db
     exit 0
 fi
 
@@ -77,4 +84,4 @@ fi
 
 patch_manifests
 echo ""
-echo "Done. Apply with: kubectl apply -f $K8S_DIR/catalogue.yaml -f $K8S_DIR/catalogue-db.yaml"
+echo "Done. Apply with: kubectl apply -f $K8S_DIR/catalogue.yaml -f $K8S_DIR/mysql.yaml"
