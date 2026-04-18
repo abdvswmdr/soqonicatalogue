@@ -677,8 +677,6 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('808a2de1-1a
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('808a2de1-1aaa-4c25-a9b9-6612e8f29a38', '/catalogue/images/rpi4b-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('510a0d7e-8e83-4193-b483-e27e09ddc34d', '/catalogue/images/esp32-devboard.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('510a0d7e-8e83-4193-b483-e27e09ddc34d', '/catalogue/images/esp32-devboard-2.jpg', 2);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/stm32-nucleo.jpg', 1);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/stm32-nucleo-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('d3588630-ad8e-49df-bbd7-3167f7efb246', '/catalogue/images/rpi-pico.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('d3588630-ad8e-49df-bbd7-3167f7efb246', '/catalogue/images/rpi-pico-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('819e1fbf-8b7e-4f6d-811f-693534916a8b', '/catalogue/images/esp32-devboard.jpg', 1);
@@ -900,3 +898,10 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-4.jpg', 4);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-5.jpg', 5);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('3395a43e-2d88-40de-b95f-e00e1502085b', '/catalogue/images/products/jetson128/jetson128-6.jpg', 6);
+
+-- image insert: STM32 Nucleo-64 Cortex-M4 80MHz Dev Board (stm32nucleo)
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/products/stm32nucleo/stm32nucleo-1.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/products/stm32nucleo/stm32nucleo-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/products/stm32nucleo/stm32nucleo-3.jpg', 3);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/products/stm32nucleo/stm32nucleo-4.jpg', 4);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('03fef6ac-1896-4ce8-bd69-b798f85c6e0b', '/catalogue/images/products/stm32nucleo/stm32nucleo-5.jpg', 5);
