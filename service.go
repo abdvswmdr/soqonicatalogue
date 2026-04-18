@@ -63,7 +63,7 @@ var ErrNotFound = errors.New("not found")
 // ErrDBConnection is returned when connection with the database fails.
 var ErrDBConnection = errors.New("database connection error")
 
-var baseQuery = "SELECT sock.sock_id AS id, sock.name, sock.description, sock.price, sock.count, sock.image_url_1, sock.image_url_2, GROUP_CONCAT(tag.name) AS tag_name FROM sock JOIN sock_tag ON sock.sock_id=sock_tag.sock_id JOIN tag ON sock_tag.tag_id=tag.tag_id"
+var baseQuery = "SELECT sock.sock_id AS id, sock.name, sock.description, sock.price, sock.count, (SELECT GROUP_CONCAT(file_path ORDER BY sort_order SEPARATOR ',') FROM product_images WHERE sock_id=sock.sock_id) AS image_paths, GROUP_CONCAT(tag.name) AS tag_name FROM sock JOIN sock_tag ON sock.sock_id=sock_tag.sock_id JOIN tag ON sock_tag.tag_id=tag.tag_id"
 
 // NewCatalogueService returns an implementation of the Service interface,
 // with connection to an SQL database.
@@ -110,7 +110,7 @@ func (s *catalogueService) List(tags []string, order string, pageNum, pageSize i
 		return []Sock{}, ErrDBConnection
 	}
 	for i, s := range socks {
-		socks[i].ImageURL = []string{s.ImageURL_1, s.ImageURL_2}
+		socks[i].ImageURL = strings.Split(s.ImagePaths, ",")
 		socks[i].Tags = strings.Split(s.TagString, ",")
 	}
 
@@ -183,7 +183,7 @@ func (s *catalogueService) Get(id string, currency string) (Sock, error) { // Ad
 	}
 	sock.Price = sock.Price * rate
 
-	sock.ImageURL = []string{sock.ImageURL_1, sock.ImageURL_2}
+	sock.ImageURL = strings.Split(sock.ImagePaths, ",")
 	sock.Tags = strings.Split(sock.TagString, ",")
 
 	return sock, nil
