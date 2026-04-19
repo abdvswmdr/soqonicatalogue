@@ -124,7 +124,7 @@ func decodeListRequest(_ context.Context, r *http.Request) (interface{}, error) 
 	if currency == "" {
 		currency = "USD"
 	}
-	order := "id"
+	order := "price"
 	if sort := r.FormValue("sort"); sort != "" {
 		order = strings.ToLower(sort)
 	}
