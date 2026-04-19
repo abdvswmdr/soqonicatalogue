@@ -98,9 +98,15 @@ func (s *catalogueService) List(tags []string, order string, pageNum, pageSize i
 
 	query += " GROUP BY id"
 
-	if order != "" {
-		query += " ORDER BY ?"
-		args = append(args, order)
+	validOrder := map[string]string{
+		"price":      "sock.price ASC",
+		"price_asc":  "sock.price ASC",
+		"price_desc": "sock.price DESC",
+		"name":       "sock.name ASC",
+		"id":         "sock.sock_id ASC",
+	}
+	if col, ok := validOrder[order]; ok {
+		query += " ORDER BY " + col
 	}
 
 	query += ";"
