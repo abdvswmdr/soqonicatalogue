@@ -88,3 +88,16 @@ func (mw loggingMiddleware) Health() (health []Health) {
 	}(time.Now())
 	return mw.next.Health()
 }
+
+func (mw loggingMiddleware) DecrementStock(id string) (count int, err error) {
+	defer func(begin time.Time) {
+		mw.logger.Log(
+			"method", "DecrementStock",
+			"id", id,
+			"count", count,
+			"err", err,
+			"took", time.Since(begin),
+		)
+	}(time.Now())
+	return mw.next.DecrementStock(id)
+}

@@ -70,6 +70,15 @@ func MakeHTTPHandler(e Endpoints, imagePath string, logger log.Logger, tracer st
 		encodeResponse,
 		append(options, httptransport.ServerBefore(opentracing.HTTPToContext(tracer, "GET /tags", logger)))...,
 	))
+	r.Methods("PUT").Path("/catalogue/{id}/stock").Handler(httptransport.NewServer(
+		circuitbreaker.Gobreaker(gobreaker.NewCircuitBreaker(gobreaker.Settings{
+			Name:    "DecrStock",
+			Timeout: 30 * time.Second,
+		}))(e.DecrStockEndpoint),
+		decodeDecrStockRequest,
+		encodeResponse,
+		append(options, httptransport.ServerBefore(opentracing.HTTPToContext(tracer, "PUT /catalogue/{id}/stock", logger)))...,
+	))
 	r.Methods("GET").PathPrefix("/catalogue/images/").Handler(http.StripPrefix(
 		"/catalogue/images/",
 		http.FileServer(http.Dir(imagePath)),
@@ -170,6 +179,10 @@ func encodeGetResponse(ctx context.Context, w http.ResponseWriter, response inte
 		return nil
 	}
 	return encodeResponse(ctx, w, resp.Sock)
+}
+
+func decodeDecrStockRequest(_ context.Context, r *http.Request) (interface{}, error) {
+	return decrStockRequest{ID: mux.Vars(r)["id"]}, nil
 }
 
 func decodeTagsRequest(_ context.Context, r *http.Request) (interface{}, error) {

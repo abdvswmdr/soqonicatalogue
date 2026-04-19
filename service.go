@@ -29,9 +29,10 @@ var CurrencySymbols = map[string]string{
 type Service interface {
 	List(tags []string, order string, pageNum, pageSize int, currency string) ([]Sock, error) // GET /catalogue
 	Get(id string, currency string) (Sock, error)                                             // GET /catalogue/{id}
-	Count(tags []string) (int, error)                                        // GET /catalogue/size
-	Tags() ([]string, error)                                                 // GET /tags
-	Health() []Health                                                        // GET /health
+	Count(tags []string) (int, error)                                                         // GET /catalogue/size
+	Tags() ([]string, error)                                                                  // GET /tags
+	Health() []Health                                                                         // GET /health
+	DecrementStock(id string) (int, error)                                                    // PUT /catalogue/{id}/stock
 }
 
 // Middleware decorates a Service.
@@ -225,6 +226,26 @@ func (s *catalogueService) Tags() ([]string, error) {
 		tags = append(tags, tag)
 	}
 	return tags, nil
+}
+
+func (s *catalogueService) DecrementStock(id string) (int, error) {
+	res, err := s.db.Exec(
+		"UPDATE sock SET count = count - 1 WHERE sock_id = ? AND count > 0", id,
+	)
+	if err != nil {
+		s.logger.Log("database error", err)
+		return 0, ErrDBConnection
+	}
+	affected, _ := res.RowsAffected()
+	if affected == 0 {
+		return 0, ErrNotFound
+	}
+	var newCount int
+	err = s.db.QueryRow("SELECT count FROM sock WHERE sock_id = ?", id).Scan(&newCount)
+	if err != nil {
+		return 0, ErrDBConnection
+	}
+	return newCount, nil
 }
 
 func cut(socks []Sock, pageNum, pageSize int) []Sock {

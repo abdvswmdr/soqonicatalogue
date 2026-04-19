@@ -57,6 +57,9 @@ if [ "$LOCAL_ONLY" = true ]; then
     patch_manifests
     echo "==> Applying manifests"
     kubectl apply -f "$K8S_DIR/catalogue.yaml" -f "$K8S_DIR/mysql.yaml"
+    echo "==> Setting imagePullPolicy=Never for local images"
+    kubectl patch deployment catalogue    -p '{"spec":{"template":{"spec":{"containers":[{"name":"catalogue","imagePullPolicy":"Never"}]}}}}'
+    kubectl patch deployment catalogue-db -p '{"spec":{"template":{"spec":{"containers":[{"name":"mysql","imagePullPolicy":"Never"}]}}}}'
     echo "==> Restarting deployments to pick up new images"
     kubectl rollout restart deployment/catalogue
     kubectl rollout restart deployment/catalogue-db

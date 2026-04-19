@@ -13,22 +13,24 @@ import (
 
 // Endpoints collects the endpoints that comprise the Service.
 type Endpoints struct {
-	ListEndpoint   endpoint.Endpoint
-	CountEndpoint  endpoint.Endpoint
-	GetEndpoint    endpoint.Endpoint
-	TagsEndpoint   endpoint.Endpoint
-	HealthEndpoint endpoint.Endpoint
+	ListEndpoint        endpoint.Endpoint
+	CountEndpoint       endpoint.Endpoint
+	GetEndpoint         endpoint.Endpoint
+	TagsEndpoint        endpoint.Endpoint
+	HealthEndpoint      endpoint.Endpoint
+	DecrStockEndpoint   endpoint.Endpoint
 }
 
 // MakeEndpoints returns an Endpoints structure, where each endpoint is
 // backed by the given service.
 func MakeEndpoints(s Service, tracer stdopentracing.Tracer) Endpoints {
 	return Endpoints{
-		ListEndpoint:   opentracing.TraceServer(tracer, "GET /catalogue")(MakeListEndpoint(s)),
-		CountEndpoint:  opentracing.TraceServer(tracer, "GET /catalogue/size")(MakeCountEndpoint(s)),
-		GetEndpoint:    opentracing.TraceServer(tracer, "GET /catalogue/{id}")(MakeGetEndpoint(s)),
-		TagsEndpoint:   opentracing.TraceServer(tracer, "GET /tags")(MakeTagsEndpoint(s)),
-		HealthEndpoint: opentracing.TraceServer(tracer, "GET /health")(MakeHealthEndpoint(s)),
+		ListEndpoint:      opentracing.TraceServer(tracer, "GET /catalogue")(MakeListEndpoint(s)),
+		CountEndpoint:     opentracing.TraceServer(tracer, "GET /catalogue/size")(MakeCountEndpoint(s)),
+		GetEndpoint:       opentracing.TraceServer(tracer, "GET /catalogue/{id}")(MakeGetEndpoint(s)),
+		TagsEndpoint:      opentracing.TraceServer(tracer, "GET /tags")(MakeTagsEndpoint(s)),
+		HealthEndpoint:    opentracing.TraceServer(tracer, "GET /health")(MakeHealthEndpoint(s)),
+		DecrStockEndpoint: opentracing.TraceServer(tracer, "PUT /catalogue/{id}/stock")(MakeDecrStockEndpoint(s)),
 	}
 }
 
@@ -72,6 +74,15 @@ func MakeHealthEndpoint(s Service) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
 		health := s.Health()
 		return healthResponse{Health: health}, nil
+	}
+}
+
+// MakeDecrStockEndpoint returns an endpoint to decrement stock for a sock.
+func MakeDecrStockEndpoint(s Service) endpoint.Endpoint {
+	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
+		req := request.(decrStockRequest)
+		count, err := s.DecrementStock(req.ID)
+		return decrStockResponse{Count: count, Err: err}, err
 	}
 }
 
@@ -122,4 +133,13 @@ type healthRequest struct {
 
 type healthResponse struct {
 	Health []Health `json:"health"`
+}
+
+type decrStockRequest struct {
+	ID string `json:"id"`
+}
+
+type decrStockResponse struct {
+	Count int   `json:"count"`
+	Err   error `json:"err"`
 }
