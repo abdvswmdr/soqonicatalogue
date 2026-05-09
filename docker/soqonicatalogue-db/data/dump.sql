@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS sock (
 CREATE TABLE IF NOT EXISTS tag (
   tag_id MEDIUMINT NOT NULL AUTO_INCREMENT,
   name varchar(20),
-  PRIMARY KEY (tag_id)
+  PRIMARY KEY (tag_id),
+  UNIQUE KEY uq_tag_name (name)
 );
 
 CREATE TABLE IF NOT EXISTS sock_tag (
@@ -23,7 +24,7 @@ CREATE TABLE IF NOT EXISTS sock_tag (
 );
 
 -- ── Products ─────────────────────────────────────────
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -36,7 +37,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -49,7 +50,7 @@ VALUES
     "/catalogue/images/rpi4b-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -62,7 +63,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -75,7 +76,7 @@ VALUES
     "/catalogue/images/stm32-nucleo-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -88,7 +89,7 @@ VALUES
     "/catalogue/images/rpi-pico-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -101,7 +102,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -114,7 +115,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -127,7 +128,7 @@ VALUES
     "/catalogue/images/jetson-nano-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -140,7 +141,7 @@ VALUES
     "/catalogue/images/beaglebone-black-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -153,7 +154,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -166,7 +167,7 @@ VALUES
     "/catalogue/images/arduino-uno.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -179,7 +180,7 @@ VALUES
     "/catalogue/images/rpi4b-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -192,7 +193,7 @@ VALUES
     "/catalogue/images/rpi-pico-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -205,7 +206,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -218,7 +219,7 @@ VALUES
     "/catalogue/images/esp32-devboard.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -231,7 +232,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -244,7 +245,7 @@ VALUES
     "/catalogue/images/stm32-nucleo.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -257,7 +258,7 @@ VALUES
     "/catalogue/images/rpi4b.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -270,7 +271,7 @@ VALUES
     "/catalogue/images/beaglebone-black-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -283,7 +284,7 @@ VALUES
     "/catalogue/images/rpi-pico-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -296,7 +297,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -309,7 +310,7 @@ VALUES
     "/catalogue/images/stm32-nucleo.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -322,7 +323,7 @@ VALUES
     "/catalogue/images/arduino-uno.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -335,7 +336,7 @@ VALUES
     "/catalogue/images/rpi-pico.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -348,7 +349,7 @@ VALUES
     "/catalogue/images/stm32-nucleo-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -361,7 +362,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -374,7 +375,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -387,7 +388,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -400,7 +401,7 @@ VALUES
     "/catalogue/images/products/l298n/l298n-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -414,681 +415,475 @@ VALUES
   );
 
 -- ── Tags ─────────────────────────────────────────────
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Microcontroller");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("SBC");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("WiFi");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Bluetooth");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("ARM");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("5V");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("3.3V");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Arduino");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Raspberry Pi");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Espressif");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Beginner");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("AI");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Sensor");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Display");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("LoRa");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Motor");
 
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Tool");
 
 -- ── Tag assignments ───────────────────────────────────
 -- Arduino Uno R3
-INSERT INTO
-  sock_tag
-VALUES
-  ("a0a4f044-b040-410d-8ead-4de0446aec7e", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'a0a4f044-b040-410d-8ead-4de0446aec7e', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("a0a4f044-b040-410d-8ead-4de0446aec7e", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'a0a4f044-b040-410d-8ead-4de0446aec7e', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("a0a4f044-b040-410d-8ead-4de0446aec7e", "8");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'a0a4f044-b040-410d-8ead-4de0446aec7e', tag_id FROM tag WHERE name = 'Arduino';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("a0a4f044-b040-410d-8ead-4de0446aec7e", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'a0a4f044-b040-410d-8ead-4de0446aec7e', tag_id FROM tag WHERE name = 'Beginner';
 
 -- Raspberry Pi 4B
-INSERT INTO
-  sock_tag
-VALUES
-  ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '808a2de1-1aaa-4c25-a9b9-6612e8f29a38', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '808a2de1-1aaa-4c25-a9b9-6612e8f29a38', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '808a2de1-1aaa-4c25-a9b9-6612e8f29a38', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '808a2de1-1aaa-4c25-a9b9-6612e8f29a38', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("808a2de1-1aaa-4c25-a9b9-6612e8f29a38", "9");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '808a2de1-1aaa-4c25-a9b9-6612e8f29a38', tag_id FROM tag WHERE name = 'Raspberry Pi';
 
 -- ESP32 DevKit
-INSERT INTO
-  sock_tag
-VALUES
-  ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '510a0d7e-8e83-4193-b483-e27e09ddc34d', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '510a0d7e-8e83-4193-b483-e27e09ddc34d', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '510a0d7e-8e83-4193-b483-e27e09ddc34d', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '510a0d7e-8e83-4193-b483-e27e09ddc34d', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "10");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '510a0d7e-8e83-4193-b483-e27e09ddc34d', tag_id FROM tag WHERE name = 'Espressif';
 
 -- STM32 Nucleo-64
-INSERT INTO
-  sock_tag
-VALUES
-  ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '03fef6ac-1896-4ce8-bd69-b798f85c6e0b', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '03fef6ac-1896-4ce8-bd69-b798f85c6e0b', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("03fef6ac-1896-4ce8-bd69-b798f85c6e0b", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '03fef6ac-1896-4ce8-bd69-b798f85c6e0b', tag_id FROM tag WHERE name = '3.3V';
 
 -- Raspberry Pi Pico
-INSERT INTO
-  sock_tag
-VALUES
-  ("d3588630-ad8e-49df-bbd7-3167f7efb246", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'd3588630-ad8e-49df-bbd7-3167f7efb246', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("d3588630-ad8e-49df-bbd7-3167f7efb246", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'd3588630-ad8e-49df-bbd7-3167f7efb246', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("d3588630-ad8e-49df-bbd7-3167f7efb246", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'd3588630-ad8e-49df-bbd7-3167f7efb246', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("d3588630-ad8e-49df-bbd7-3167f7efb246", "9");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'd3588630-ad8e-49df-bbd7-3167f7efb246', tag_id FROM tag WHERE name = 'Raspberry Pi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("d3588630-ad8e-49df-bbd7-3167f7efb246", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'd3588630-ad8e-49df-bbd7-3167f7efb246', tag_id FROM tag WHERE name = 'Beginner';
 
 -- NodeMCU ESP8266
-INSERT INTO
-  sock_tag
-VALUES
-  ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '819e1fbf-8b7e-4f6d-811f-693534916a8b', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '819e1fbf-8b7e-4f6d-811f-693534916a8b', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '819e1fbf-8b7e-4f6d-811f-693534916a8b', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "10");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '819e1fbf-8b7e-4f6d-811f-693534916a8b', tag_id FROM tag WHERE name = 'Espressif';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '819e1fbf-8b7e-4f6d-811f-693534916a8b', tag_id FROM tag WHERE name = 'Beginner';
 
 -- Arduino Mega 2560
-INSERT INTO
-  sock_tag
-VALUES
-  ("zzz4f044-b040-410d-8ead-4de0446aec7e", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'zzz4f044-b040-410d-8ead-4de0446aec7e', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("zzz4f044-b040-410d-8ead-4de0446aec7e", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'zzz4f044-b040-410d-8ead-4de0446aec7e', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("zzz4f044-b040-410d-8ead-4de0446aec7e", "8");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'zzz4f044-b040-410d-8ead-4de0446aec7e', tag_id FROM tag WHERE name = 'Arduino';
 
 -- Jetson Nano
-INSERT INTO
-  sock_tag
-VALUES
-  ("3395a43e-2d88-40de-b95f-e00e1502085b", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '3395a43e-2d88-40de-b95f-e00e1502085b', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("3395a43e-2d88-40de-b95f-e00e1502085b", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '3395a43e-2d88-40de-b95f-e00e1502085b', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("3395a43e-2d88-40de-b95f-e00e1502085b", "12");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '3395a43e-2d88-40de-b95f-e00e1502085b', tag_id FROM tag WHERE name = 'AI';
 
 -- BeagleBone Black
-INSERT INTO
-  sock_tag
-VALUES
-  ("837ab141-399e-4c1f-9abc-bace40296bac", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '837ab141-399e-4c1f-9abc-bace40296bac', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("837ab141-399e-4c1f-9abc-bace40296bac", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '837ab141-399e-4c1f-9abc-bace40296bac', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("837ab141-399e-4c1f-9abc-bace40296bac", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '837ab141-399e-4c1f-9abc-bace40296bac', tag_id FROM tag WHERE name = 'ARM';
 
 -- Arduino Nano
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000010-0000-4000-a000-000000000010", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000010-0000-4000-a000-000000000010', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000010-0000-4000-a000-000000000010", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000010-0000-4000-a000-000000000010', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000010-0000-4000-a000-000000000010", "8");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000010-0000-4000-a000-000000000010', tag_id FROM tag WHERE name = 'Arduino';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000010-0000-4000-a000-000000000010", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000010-0000-4000-a000-000000000010', tag_id FROM tag WHERE name = 'Beginner';
 
 -- Arduino Leonardo
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000011-0000-4000-a000-000000000011", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000011-0000-4000-a000-000000000011', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000011-0000-4000-a000-000000000011", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000011-0000-4000-a000-000000000011', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000011-0000-4000-a000-000000000011", "8");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000011-0000-4000-a000-000000000011', tag_id FROM tag WHERE name = 'Arduino';
 
 -- Raspberry Pi 5
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000012-0000-4000-a000-000000000012", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000012-0000-4000-a000-000000000012', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000012-0000-4000-a000-000000000012", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000012-0000-4000-a000-000000000012', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000012-0000-4000-a000-000000000012", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000012-0000-4000-a000-000000000012', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000012-0000-4000-a000-000000000012", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000012-0000-4000-a000-000000000012', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000012-0000-4000-a000-000000000012", "9");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000012-0000-4000-a000-000000000012', tag_id FROM tag WHERE name = 'Raspberry Pi';
 
 -- Raspberry Pi Zero 2W
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000013-0000-4000-a000-000000000013", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000013-0000-4000-a000-000000000013', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000013-0000-4000-a000-000000000013", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000013-0000-4000-a000-000000000013', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000013-0000-4000-a000-000000000013", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000013-0000-4000-a000-000000000013', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000013-0000-4000-a000-000000000013", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000013-0000-4000-a000-000000000013', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000013-0000-4000-a000-000000000013", "9");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000013-0000-4000-a000-000000000013', tag_id FROM tag WHERE name = 'Raspberry Pi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000013-0000-4000-a000-000000000013", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000013-0000-4000-a000-000000000013', tag_id FROM tag WHERE name = 'Beginner';
 
 -- ESP32-S3 DevKit
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000014-0000-4000-a000-000000000014", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000014-0000-4000-a000-000000000014", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000014-0000-4000-a000-000000000014", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000014-0000-4000-a000-000000000014", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000014-0000-4000-a000-000000000014", "10");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = 'Espressif';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000014-0000-4000-a000-000000000014", "12");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = 'AI';
 
 -- ESP32-CAM
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000015-0000-4000-a000-000000000015", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000015-0000-4000-a000-000000000015', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000015-0000-4000-a000-000000000015", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000015-0000-4000-a000-000000000015', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000015-0000-4000-a000-000000000015", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000015-0000-4000-a000-000000000015', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000015-0000-4000-a000-000000000015", "10");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000015-0000-4000-a000-000000000015', tag_id FROM tag WHERE name = 'Espressif';
 
 -- Teensy 4.1
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000016-0000-4000-a000-000000000016", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000016-0000-4000-a000-000000000016', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000016-0000-4000-a000-000000000016", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000016-0000-4000-a000-000000000016', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000016-0000-4000-a000-000000000016", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000016-0000-4000-a000-000000000016', tag_id FROM tag WHERE name = '3.3V';
 
 -- STM32 Blue Pill
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000017-0000-4000-a000-000000000017", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000017-0000-4000-a000-000000000017', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000017-0000-4000-a000-000000000017", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000017-0000-4000-a000-000000000017', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000017-0000-4000-a000-000000000017", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000017-0000-4000-a000-000000000017', tag_id FROM tag WHERE name = '3.3V';
 
 -- Orange Pi Zero 2
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000018-0000-4000-a000-000000000018", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000018-0000-4000-a000-000000000018', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000018-0000-4000-a000-000000000018", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000018-0000-4000-a000-000000000018', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000018-0000-4000-a000-000000000018", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000018-0000-4000-a000-000000000018', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000018-0000-4000-a000-000000000018", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000018-0000-4000-a000-000000000018', tag_id FROM tag WHERE name = 'ARM';
 
 -- Rock Pi 4B
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000019-0000-4000-a000-000000000019", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000019-0000-4000-a000-000000000019', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000019-0000-4000-a000-000000000019", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000019-0000-4000-a000-000000000019', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000019-0000-4000-a000-000000000019", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000019-0000-4000-a000-000000000019', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000019-0000-4000-a000-000000000019", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000019-0000-4000-a000-000000000019', tag_id FROM tag WHERE name = 'ARM';
 
 -- DHT22
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000020-0000-4000-a000-000000000020", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000020-0000-4000-a000-000000000020', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000020-0000-4000-a000-000000000020", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000020-0000-4000-a000-000000000020', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000020-0000-4000-a000-000000000020", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000020-0000-4000-a000-000000000020', tag_id FROM tag WHERE name = 'Beginner';
 
 -- BME280
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000021-0000-4000-a000-000000000021", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000021-0000-4000-a000-000000000021', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000021-0000-4000-a000-000000000021", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000021-0000-4000-a000-000000000021', tag_id FROM tag WHERE name = '3.3V';
 
 -- MPU-6050
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000022-0000-4000-a000-000000000022", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000022-0000-4000-a000-000000000022', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000022-0000-4000-a000-000000000022", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000022-0000-4000-a000-000000000022', tag_id FROM tag WHERE name = '3.3V';
 
 -- HC-SR04
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000023-0000-4000-a000-000000000023", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000023-0000-4000-a000-000000000023', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000023-0000-4000-a000-000000000023", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000023-0000-4000-a000-000000000023', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000023-0000-4000-a000-000000000023", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000023-0000-4000-a000-000000000023', tag_id FROM tag WHERE name = 'Beginner';
 
 -- HC-SR501 PIR
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000024-0000-4000-a000-000000000024", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000024-0000-4000-a000-000000000024', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000024-0000-4000-a000-000000000024", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000024-0000-4000-a000-000000000024', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000024-0000-4000-a000-000000000024", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000024-0000-4000-a000-000000000024', tag_id FROM tag WHERE name = 'Beginner';
 
 -- SX1276 LoRa
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000025-0000-4000-a000-000000000025", "15");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000025-0000-4000-a000-000000000025', tag_id FROM tag WHERE name = 'LoRa';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000025-0000-4000-a000-000000000025", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000025-0000-4000-a000-000000000025', tag_id FROM tag WHERE name = '3.3V';
 
 -- SSD1306 OLED
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000026-0000-4000-a000-000000000026", "14");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000026-0000-4000-a000-000000000026', tag_id FROM tag WHERE name = 'Display';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000026-0000-4000-a000-000000000026", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000026-0000-4000-a000-000000000026', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000026-0000-4000-a000-000000000026", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000026-0000-4000-a000-000000000026', tag_id FROM tag WHERE name = 'Beginner';
 
 -- Logic Analyzer
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000027-0000-4000-a000-000000000027", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000027-0000-4000-a000-000000000027', tag_id FROM tag WHERE name = 'Tool';
 
 -- CP2102
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000028-0000-4000-a000-000000000028", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000028-0000-4000-a000-000000000028', tag_id FROM tag WHERE name = 'Tool';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000028-0000-4000-a000-000000000028", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000028-0000-4000-a000-000000000028', tag_id FROM tag WHERE name = 'Beginner';
 
 -- L298N Motor Driver
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000029-0000-4000-a000-000000000029", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000029-0000-4000-a000-000000000029', tag_id FROM tag WHERE name = 'Motor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000029-0000-4000-a000-000000000029", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000029-0000-4000-a000-000000000029', tag_id FROM tag WHERE name = '5V';
 
 -- Breadboard
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000030-0000-4000-a000-000000000030", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000030-0000-4000-a000-000000000030', tag_id FROM tag WHERE name = 'Tool';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000030-0000-4000-a000-000000000030", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000030-0000-4000-a000-000000000030', tag_id FROM tag WHERE name = 'Beginner';
 
 -- ── New tags ──────────────────────────────────────────
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Servo");
 
 -- 18
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Stepper");
 
 -- 19
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("RF");
 
 -- 20
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("GSM");
 
 -- 21
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Power");
 
 -- 22
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Ethernet");
 
 -- 23
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Camera");
 
 -- 24
-INSERT INTO
+INSERT IGNORE INTO
   tag (name)
 VALUES
   ("Wireless");
@@ -1096,7 +891,7 @@ VALUES
 -- 25
 -- ── New products ──────────────────────────────────────
 -- SENSORS
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1109,7 +904,7 @@ VALUES
     "/catalogue/images/rpi-pico-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1122,7 +917,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1135,7 +930,7 @@ VALUES
     "/catalogue/images/esp32-devboard.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1148,7 +943,7 @@ VALUES
     "/catalogue/images/stm32-nucleo-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1161,7 +956,7 @@ VALUES
     "/catalogue/images/arduino-uno.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1174,7 +969,7 @@ VALUES
     "/catalogue/images/rpi-pico.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1187,7 +982,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1200,7 +995,7 @@ VALUES
     "/catalogue/images/stm32-nucleo.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1213,7 +1008,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1226,7 +1021,7 @@ VALUES
     "/catalogue/images/esp32-devboard.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1239,7 +1034,7 @@ VALUES
     "/catalogue/images/rpi-pico-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1253,7 +1048,7 @@ VALUES
   );
 
 -- DISPLAYS
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1266,7 +1061,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1279,7 +1074,7 @@ VALUES
     "/catalogue/images/rpi-pico-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1292,7 +1087,7 @@ VALUES
     "/catalogue/images/stm32-nucleo-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1305,7 +1100,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1319,7 +1114,7 @@ VALUES
   );
 
 -- WIRELESS / RF
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1332,7 +1127,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1345,7 +1140,7 @@ VALUES
     "/catalogue/images/esp32-devboard.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1358,7 +1153,7 @@ VALUES
     "/catalogue/images/stm32-nucleo-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1371,7 +1166,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1384,7 +1179,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1398,7 +1193,7 @@ VALUES
   );
 
 -- MOTORS / ACTUATORS
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1411,7 +1206,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1424,7 +1219,7 @@ VALUES
     "/catalogue/images/arduino-uno.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1437,7 +1232,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1450,7 +1245,7 @@ VALUES
     "/catalogue/images/rpi-pico-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1463,7 +1258,7 @@ VALUES
     "/catalogue/images/stm32-nucleo.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1477,7 +1272,7 @@ VALUES
   );
 
 -- TOOLS & PROTOTYPING
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1490,7 +1285,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1503,7 +1298,7 @@ VALUES
     "/catalogue/images/arduino-uno.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1516,7 +1311,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1529,7 +1324,7 @@ VALUES
     "/catalogue/images/arduino-mega.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1542,7 +1337,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1556,7 +1351,7 @@ VALUES
   );
 
 -- POWER MANAGEMENT
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1569,7 +1364,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1582,7 +1377,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1595,7 +1390,7 @@ VALUES
     "/catalogue/images/rpi-pico-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -1610,575 +1405,367 @@ VALUES
 
 -- ── Tag assignments for new products ─────────────────
 -- DS18B20
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000001-0000-4000-a000-000000000001", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000001-0000-4000-a000-000000000001', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000001-0000-4000-a000-000000000001", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000001-0000-4000-a000-000000000001', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000001-0000-4000-a000-000000000001", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000001-0000-4000-a000-000000000001', tag_id FROM tag WHERE name = 'Beginner';
 
 -- MQ-2 Gas Sensor
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000002-0000-4000-a000-000000000002", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000002-0000-4000-a000-000000000002', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000002-0000-4000-a000-000000000002", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000002-0000-4000-a000-000000000002', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000002-0000-4000-a000-000000000002", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000002-0000-4000-a000-000000000002', tag_id FROM tag WHERE name = 'Beginner';
 
 -- ADXL345
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000003-0000-4000-a000-000000000003", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000003-0000-4000-a000-000000000003', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000003-0000-4000-a000-000000000003", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000003-0000-4000-a000-000000000003', tag_id FROM tag WHERE name = '3.3V';
 
 -- BMP180
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000004-0000-4000-a000-000000000004", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000004-0000-4000-a000-000000000004', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000004-0000-4000-a000-000000000004", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000004-0000-4000-a000-000000000004', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000004-0000-4000-a000-000000000004", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000004-0000-4000-a000-000000000004', tag_id FROM tag WHERE name = 'Beginner';
 
 -- ACS712
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000005-0000-4000-a000-000000000005", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000005-0000-4000-a000-000000000005', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000005-0000-4000-a000-000000000005", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000005-0000-4000-a000-000000000005', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000005-0000-4000-a000-000000000005", "22");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000005-0000-4000-a000-000000000005', tag_id FROM tag WHERE name = 'Power';
 
 -- KY-040 Encoder
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000006-0000-4000-a000-000000000006", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000006-0000-4000-a000-000000000006', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000006-0000-4000-a000-000000000006", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000006-0000-4000-a000-000000000006', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000006-0000-4000-a000-000000000006", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000006-0000-4000-a000-000000000006', tag_id FROM tag WHERE name = 'Beginner';
 
 -- TCS3200 Color
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000007-0000-4000-a000-000000000007", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000007-0000-4000-a000-000000000007', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000007-0000-4000-a000-000000000007", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000007-0000-4000-a000-000000000007', tag_id FROM tag WHERE name = '3.3V';
 
 -- VL53L0X ToF
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000008-0000-4000-a000-000000000008", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000008-0000-4000-a000-000000000008', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000008-0000-4000-a000-000000000008", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000008-0000-4000-a000-000000000008', tag_id FROM tag WHERE name = '3.3V';
 
 -- Rain Sensor
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000009-0000-4000-a000-000000000009", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000009-0000-4000-a000-000000000009', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000009-0000-4000-a000-000000000009", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000009-0000-4000-a000-000000000009', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000009-0000-4000-a000-000000000009", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000009-0000-4000-a000-000000000009', tag_id FROM tag WHERE name = 'Beginner';
 
 -- INA219
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000010-0000-4000-a000-000000000010", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000010-0000-4000-a000-000000000010', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000010-0000-4000-a000-000000000010", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000010-0000-4000-a000-000000000010', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000010-0000-4000-a000-000000000010", "22");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000010-0000-4000-a000-000000000010', tag_id FROM tag WHERE name = 'Power';
 
 -- MQ-135
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000011-0000-4000-a000-000000000011", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000011-0000-4000-a000-000000000011', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000011-0000-4000-a000-000000000011", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000011-0000-4000-a000-000000000011', tag_id FROM tag WHERE name = '5V';
 
 -- HCSR505 Mini PIR
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000012-0000-4000-a000-000000000012", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000012-0000-4000-a000-000000000012', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000012-0000-4000-a000-000000000012", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000012-0000-4000-a000-000000000012', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000012-0000-4000-a000-000000000012", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000012-0000-4000-a000-000000000012', tag_id FROM tag WHERE name = 'Beginner';
 
 -- 1.8in TFT
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000013-0000-4000-a000-000000000013", "14");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000013-0000-4000-a000-000000000013', tag_id FROM tag WHERE name = 'Display';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000013-0000-4000-a000-000000000013", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000013-0000-4000-a000-000000000013', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000013-0000-4000-a000-000000000013", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000013-0000-4000-a000-000000000013', tag_id FROM tag WHERE name = 'Beginner';
 
 -- 16x2 LCD
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000014-0000-4000-a000-000000000014", "14");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = 'Display';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000014-0000-4000-a000-000000000014", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000014-0000-4000-a000-000000000014", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = 'Beginner';
 
 -- 4x20 LCD
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000015-0000-4000-a000-000000000015", "14");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000015-0000-4000-a000-000000000015', tag_id FROM tag WHERE name = 'Display';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000015-0000-4000-a000-000000000015", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000015-0000-4000-a000-000000000015', tag_id FROM tag WHERE name = '5V';
 
 -- MAX7219 Matrix
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000016-0000-4000-a000-000000000016", "14");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000016-0000-4000-a000-000000000016', tag_id FROM tag WHERE name = 'Display';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000016-0000-4000-a000-000000000016", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000016-0000-4000-a000-000000000016', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000016-0000-4000-a000-000000000016", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000016-0000-4000-a000-000000000016', tag_id FROM tag WHERE name = 'Beginner';
 
 -- 2.4in TFT ILI9341
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000017-0000-4000-a000-000000000017", "14");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000017-0000-4000-a000-000000000017', tag_id FROM tag WHERE name = 'Display';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000017-0000-4000-a000-000000000017", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000017-0000-4000-a000-000000000017', tag_id FROM tag WHERE name = '3.3V';
 
 -- HC-05 Bluetooth
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000018-0000-4000-a000-000000000018", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000018-0000-4000-a000-000000000018', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000018-0000-4000-a000-000000000018", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000018-0000-4000-a000-000000000018', tag_id FROM tag WHERE name = 'Wireless';
 
 -- HC-06 Bluetooth
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000019-0000-4000-a000-000000000019", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000019-0000-4000-a000-000000000019', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000019-0000-4000-a000-000000000019", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000019-0000-4000-a000-000000000019', tag_id FROM tag WHERE name = 'Wireless';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000019-0000-4000-a000-000000000019", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000019-0000-4000-a000-000000000019', tag_id FROM tag WHERE name = 'Beginner';
 
 -- NRF24L01+
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000020-0000-4000-a000-000000000020", "20");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000020-0000-4000-a000-000000000020', tag_id FROM tag WHERE name = 'RF';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000020-0000-4000-a000-000000000020", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000020-0000-4000-a000-000000000020', tag_id FROM tag WHERE name = 'Wireless';
 
 -- SIM800L GSM
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000021-0000-4000-a000-000000000021", "21");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000021-0000-4000-a000-000000000021', tag_id FROM tag WHERE name = 'GSM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000021-0000-4000-a000-000000000021", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000021-0000-4000-a000-000000000021', tag_id FROM tag WHERE name = 'Wireless';
 
 -- ESP-01S WiFi
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000022-0000-4000-a000-000000000022", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000022-0000-4000-a000-000000000022', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000022-0000-4000-a000-000000000022", "10");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000022-0000-4000-a000-000000000022', tag_id FROM tag WHERE name = 'Espressif';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000022-0000-4000-a000-000000000022", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000022-0000-4000-a000-000000000022', tag_id FROM tag WHERE name = 'Wireless';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000022-0000-4000-a000-000000000022", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000022-0000-4000-a000-000000000022', tag_id FROM tag WHERE name = 'Beginner';
 
 -- W5500 Ethernet
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000023-0000-4000-a000-000000000023", "23");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000023-0000-4000-a000-000000000023', tag_id FROM tag WHERE name = 'Ethernet';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000023-0000-4000-a000-000000000023", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000023-0000-4000-a000-000000000023', tag_id FROM tag WHERE name = 'Wireless';
 
 -- SG90 Servo
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000024-0000-4000-a000-000000000024", "18");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000024-0000-4000-a000-000000000024', tag_id FROM tag WHERE name = 'Servo';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000024-0000-4000-a000-000000000024", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000024-0000-4000-a000-000000000024', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000024-0000-4000-a000-000000000024", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000024-0000-4000-a000-000000000024', tag_id FROM tag WHERE name = 'Beginner';
 
 -- MG996R Servo
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000025-0000-4000-a000-000000000025", "18");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000025-0000-4000-a000-000000000025', tag_id FROM tag WHERE name = 'Servo';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000025-0000-4000-a000-000000000025", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000025-0000-4000-a000-000000000025', tag_id FROM tag WHERE name = '5V';
 
 -- NEMA17 Stepper
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000026-0000-4000-a000-000000000026", "19");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000026-0000-4000-a000-000000000026', tag_id FROM tag WHERE name = 'Stepper';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000026-0000-4000-a000-000000000026", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000026-0000-4000-a000-000000000026', tag_id FROM tag WHERE name = 'Motor';
 
 -- 28BYJ-48 Stepper
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000027-0000-4000-a000-000000000027", "19");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000027-0000-4000-a000-000000000027', tag_id FROM tag WHERE name = 'Stepper';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000027-0000-4000-a000-000000000027", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000027-0000-4000-a000-000000000027', tag_id FROM tag WHERE name = 'Motor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000027-0000-4000-a000-000000000027", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000027-0000-4000-a000-000000000027', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000027-0000-4000-a000-000000000027", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000027-0000-4000-a000-000000000027', tag_id FROM tag WHERE name = 'Beginner';
 
 -- DRV8825 Driver
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000028-0000-4000-a000-000000000028", "19");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000028-0000-4000-a000-000000000028', tag_id FROM tag WHERE name = 'Stepper';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000028-0000-4000-a000-000000000028", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000028-0000-4000-a000-000000000028', tag_id FROM tag WHERE name = 'Motor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000028-0000-4000-a000-000000000028", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000028-0000-4000-a000-000000000028', tag_id FROM tag WHERE name = '3.3V';
 
 -- A4988 Driver
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000029-0000-4000-a000-000000000029", "19");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000029-0000-4000-a000-000000000029', tag_id FROM tag WHERE name = 'Stepper';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000029-0000-4000-a000-000000000029", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000029-0000-4000-a000-000000000029', tag_id FROM tag WHERE name = 'Motor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000029-0000-4000-a000-000000000029", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000029-0000-4000-a000-000000000029', tag_id FROM tag WHERE name = '5V';
 
 -- Jumper Wires
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000030-0000-4000-a000-000000000030", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000030-0000-4000-a000-000000000030', tag_id FROM tag WHERE name = 'Tool';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000030-0000-4000-a000-000000000030", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000030-0000-4000-a000-000000000030', tag_id FROM tag WHERE name = 'Beginner';
 
 -- Male Headers
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000031-0000-4000-a000-000000000031", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000031-0000-4000-a000-000000000031', tag_id FROM tag WHERE name = 'Tool';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000031-0000-4000-a000-000000000031", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000031-0000-4000-a000-000000000031', tag_id FROM tag WHERE name = 'Beginner';
 
 -- USB Power Meter
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000032-0000-4000-a000-000000000032", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000032-0000-4000-a000-000000000032', tag_id FROM tag WHERE name = 'Tool';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000032-0000-4000-a000-000000000032", "22");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000032-0000-4000-a000-000000000032', tag_id FROM tag WHERE name = 'Power';
 
 -- Digital Multimeter
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000033-0000-4000-a000-000000000033", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000033-0000-4000-a000-000000000033', tag_id FROM tag WHERE name = 'Tool';
 
 -- Soldering Iron Kit
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000034-0000-4000-a000-000000000034", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000034-0000-4000-a000-000000000034', tag_id FROM tag WHERE name = 'Tool';
 
 -- MicroSD Module
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000035-0000-4000-a000-000000000035", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000035-0000-4000-a000-000000000035', tag_id FROM tag WHERE name = 'Tool';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000035-0000-4000-a000-000000000035", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000035-0000-4000-a000-000000000035', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000035-0000-4000-a000-000000000035", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000035-0000-4000-a000-000000000035', tag_id FROM tag WHERE name = 'Beginner';
 
 -- LM2596 Buck
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000036-0000-4000-a000-000000000036", "22");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000036-0000-4000-a000-000000000036', tag_id FROM tag WHERE name = 'Power';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000036-0000-4000-a000-000000000036", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000036-0000-4000-a000-000000000036', tag_id FROM tag WHERE name = 'Tool';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000036-0000-4000-a000-000000000036", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000036-0000-4000-a000-000000000036', tag_id FROM tag WHERE name = 'Beginner';
 
 -- MT3608 Boost
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000037-0000-4000-a000-000000000037", "22");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000037-0000-4000-a000-000000000037', tag_id FROM tag WHERE name = 'Power';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000037-0000-4000-a000-000000000037", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000037-0000-4000-a000-000000000037', tag_id FROM tag WHERE name = 'Tool';
 
 -- TP4056 Charger
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000038-0000-4000-a000-000000000038", "22");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000038-0000-4000-a000-000000000038', tag_id FROM tag WHERE name = 'Power';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000038-0000-4000-a000-000000000038", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000038-0000-4000-a000-000000000038', tag_id FROM tag WHERE name = 'Tool';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000038-0000-4000-a000-000000000038", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000038-0000-4000-a000-000000000038', tag_id FROM tag WHERE name = 'Beginner';
 
 -- AMS1117 LDO
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000039-0000-4000-a000-000000000039", "22");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000039-0000-4000-a000-000000000039', tag_id FROM tag WHERE name = 'Power';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000039-0000-4000-a000-000000000039", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000039-0000-4000-a000-000000000039', tag_id FROM tag WHERE name = 'Tool';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000039-0000-4000-a000-000000000039", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000039-0000-4000-a000-000000000039', tag_id FROM tag WHERE name = '3.3V';
 
 -- Also tag existing WiFi products with Wireless (tag 25)
-INSERT INTO
-  sock_tag
-VALUES
-  ("510a0d7e-8e83-4193-b483-e27e09ddc34d", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '510a0d7e-8e83-4193-b483-e27e09ddc34d', tag_id FROM tag WHERE name = 'Wireless';
 
 -- ESP32
-INSERT INTO
-  sock_tag
-VALUES
-  ("819e1fbf-8b7e-4f6d-811f-693534916a8b", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT '819e1fbf-8b7e-4f6d-811f-693534916a8b', tag_id FROM tag WHERE name = 'Wireless';
 
 -- NodeMCU
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000014-0000-4000-a000-000000000014", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000014-0000-4000-a000-000000000014', tag_id FROM tag WHERE name = 'Wireless';
 
 -- ESP32-S3
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000015-0000-4000-a000-000000000015", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000015-0000-4000-a000-000000000015', tag_id FROM tag WHERE name = 'Wireless';
 
 -- ESP32-CAM
-INSERT INTO
-  sock_tag
-VALUES
-  ("c1000025-0000-4000-a000-000000000025", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c1000025-0000-4000-a000-000000000025', tag_id FROM tag WHERE name = 'Wireless';
 
 -- SX1276 LoRa
 -- ═══════════════════════════════════════════════════════
 -- BATCH 3 — EXPANDED CATALOGUE
 -- ═══════════════════════════════════════════════════════
 -- ── Microcontrollers ─────────────────────────────────
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2191,7 +1778,7 @@ VALUES
     "/catalogue/images/rpi-pico-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2204,7 +1791,7 @@ VALUES
     "/catalogue/images/stm32-nucleo-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2217,7 +1804,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2230,7 +1817,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2244,7 +1831,7 @@ VALUES
   );
 
 -- ── Single Board Computers ────────────────────────────
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2257,7 +1844,7 @@ VALUES
     "/catalogue/images/rpi4b-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2270,7 +1857,7 @@ VALUES
     "/catalogue/images/rpi4b.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2283,7 +1870,7 @@ VALUES
     "/catalogue/images/beaglebone-black-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2296,7 +1883,7 @@ VALUES
     "/catalogue/images/jetson-nano-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2309,7 +1896,7 @@ VALUES
     "/catalogue/images/rpi4b-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2323,7 +1910,7 @@ VALUES
   );
 
 -- ── Sensors ───────────────────────────────────────────
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2336,7 +1923,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2349,7 +1936,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2362,7 +1949,7 @@ VALUES
     "/catalogue/images/stm32-nucleo.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2375,7 +1962,7 @@ VALUES
     "/catalogue/images/esp32-devboard.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2389,7 +1976,7 @@ VALUES
   );
 
 -- ── Wireless & RF ─────────────────────────────────────
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2402,7 +1989,7 @@ VALUES
     "/catalogue/images/stm32-nucleo-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2415,7 +2002,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2428,7 +2015,7 @@ VALUES
     "/catalogue/images/esp32-devboard-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2441,7 +2028,7 @@ VALUES
     "/catalogue/images/arduino-uno-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2455,7 +2042,7 @@ VALUES
   );
 
 -- ── Motors & Actuators ────────────────────────────────
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2468,7 +2055,7 @@ VALUES
     "/catalogue/images/arduino-uno.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2481,7 +2068,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2494,7 +2081,7 @@ VALUES
     "/catalogue/images/arduino-mega.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2507,7 +2094,7 @@ VALUES
     "/catalogue/images/stm32-nucleo.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2521,7 +2108,7 @@ VALUES
   );
 
 -- ── Tools & Equipment ────────────────────────────────
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2534,7 +2121,7 @@ VALUES
     "/catalogue/images/arduino-mega-2.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2547,7 +2134,7 @@ VALUES
     "/catalogue/images/arduino-uno.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2560,7 +2147,7 @@ VALUES
     "/catalogue/images/esp32-devboard.jpg"
   );
 
-INSERT INTO
+INSERT IGNORE INTO
   sock
 VALUES
   (
@@ -2575,464 +2162,292 @@ VALUES
 
 -- ── Tag assignments — batch 3 ─────────────────────────
 -- Pico W: MCU, WiFi, 3.3V, Raspberry Pi, Beginner, Wireless
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000040-0000-4000-a000-000000000040", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000040-0000-4000-a000-000000000040', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000040-0000-4000-a000-000000000040", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000040-0000-4000-a000-000000000040', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000040-0000-4000-a000-000000000040", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000040-0000-4000-a000-000000000040', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000040-0000-4000-a000-000000000040", "9");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000040-0000-4000-a000-000000000040', tag_id FROM tag WHERE name = 'Raspberry Pi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000040-0000-4000-a000-000000000040", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000040-0000-4000-a000-000000000040', tag_id FROM tag WHERE name = 'Beginner';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000040-0000-4000-a000-000000000040", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000040-0000-4000-a000-000000000040', tag_id FROM tag WHERE name = 'Wireless';
 
 -- STM32 Black Pill: MCU, ARM, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000041-0000-4000-a000-000000000041", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000041-0000-4000-a000-000000000041', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000041-0000-4000-a000-000000000041", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000041-0000-4000-a000-000000000041', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000041-0000-4000-a000-000000000041", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000041-0000-4000-a000-000000000041', tag_id FROM tag WHERE name = '3.3V';
 
 -- Teensy 4.0: MCU, ARM, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000042-0000-4000-a000-000000000042", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000042-0000-4000-a000-000000000042', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000042-0000-4000-a000-000000000042", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000042-0000-4000-a000-000000000042', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000042-0000-4000-a000-000000000042", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000042-0000-4000-a000-000000000042', tag_id FROM tag WHERE name = '3.3V';
 
 -- ESP32-S2: MCU, WiFi, 3.3V, Espressif, Wireless
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000043-0000-4000-a000-000000000043", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000043-0000-4000-a000-000000000043', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000043-0000-4000-a000-000000000043", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000043-0000-4000-a000-000000000043', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000043-0000-4000-a000-000000000043", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000043-0000-4000-a000-000000000043', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000043-0000-4000-a000-000000000043", "10");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000043-0000-4000-a000-000000000043', tag_id FROM tag WHERE name = 'Espressif';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000043-0000-4000-a000-000000000043", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000043-0000-4000-a000-000000000043', tag_id FROM tag WHERE name = 'Wireless';
 
 -- Arduino GIGA R1: MCU, WiFi, Bluetooth, ARM, Arduino, Wireless
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000044-0000-4000-a000-000000000044", "1");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000044-0000-4000-a000-000000000044', tag_id FROM tag WHERE name = 'Microcontroller';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000044-0000-4000-a000-000000000044", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000044-0000-4000-a000-000000000044', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000044-0000-4000-a000-000000000044", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000044-0000-4000-a000-000000000044', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000044-0000-4000-a000-000000000044", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000044-0000-4000-a000-000000000044', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000044-0000-4000-a000-000000000044", "8");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000044-0000-4000-a000-000000000044', tag_id FROM tag WHERE name = 'Arduino';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000044-0000-4000-a000-000000000044", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000044-0000-4000-a000-000000000044', tag_id FROM tag WHERE name = 'Wireless';
 
 -- Orange Pi 5: SBC, ARM, WiFi, Bluetooth, AI, Wireless
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000046-0000-4000-a000-000000000046", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000046-0000-4000-a000-000000000046', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000046-0000-4000-a000-000000000046", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000046-0000-4000-a000-000000000046', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000046-0000-4000-a000-000000000046", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000046-0000-4000-a000-000000000046', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000046-0000-4000-a000-000000000046", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000046-0000-4000-a000-000000000046', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000046-0000-4000-a000-000000000046", "12");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000046-0000-4000-a000-000000000046', tag_id FROM tag WHERE name = 'AI';
 
 -- Libre Renegade: SBC, ARM
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000047-0000-4000-a000-000000000047", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000047-0000-4000-a000-000000000047', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000047-0000-4000-a000-000000000047", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000047-0000-4000-a000-000000000047', tag_id FROM tag WHERE name = 'ARM';
 
 -- Rock 5B: SBC, ARM, WiFi, Bluetooth, Ethernet, Wireless
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000048-0000-4000-a000-000000000048", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000048-0000-4000-a000-000000000048', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000048-0000-4000-a000-000000000048", "3");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000048-0000-4000-a000-000000000048', tag_id FROM tag WHERE name = 'WiFi';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000048-0000-4000-a000-000000000048", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000048-0000-4000-a000-000000000048', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000048-0000-4000-a000-000000000048", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000048-0000-4000-a000-000000000048', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000048-0000-4000-a000-000000000048", "23");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000048-0000-4000-a000-000000000048', tag_id FROM tag WHERE name = 'Ethernet';
 
 -- Jetson Orin Nano: SBC, ARM, AI
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000049-0000-4000-a000-000000000049", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000049-0000-4000-a000-000000000049', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000049-0000-4000-a000-000000000049", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000049-0000-4000-a000-000000000049', tag_id FROM tag WHERE name = 'ARM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000049-0000-4000-a000-000000000049", "12");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000049-0000-4000-a000-000000000049', tag_id FROM tag WHERE name = 'AI';
 
 -- Banana Pi BPI-M5: SBC, ARM
-INSERT INTO
-  sock_tag
-VALUES
-  ("c3000001-0000-4000-a000-000000000001", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c3000001-0000-4000-a000-000000000001', tag_id FROM tag WHERE name = 'SBC';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c3000001-0000-4000-a000-000000000001", "5");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c3000001-0000-4000-a000-000000000001', tag_id FROM tag WHERE name = 'ARM';
 
 -- BeagleV-Ahead: SBC
-INSERT INTO
-  sock_tag
-VALUES
-  ("c3000002-0000-4000-a000-000000000002", "2");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c3000002-0000-4000-a000-000000000002', tag_id FROM tag WHERE name = 'SBC';
 
 -- AHT20+BMP280: Sensor, 3.3V, Beginner
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000050-0000-4000-a000-000000000050", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000050-0000-4000-a000-000000000050', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000050-0000-4000-a000-000000000050", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000050-0000-4000-a000-000000000050', tag_id FROM tag WHERE name = '3.3V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000050-0000-4000-a000-000000000050", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000050-0000-4000-a000-000000000050', tag_id FROM tag WHERE name = 'Beginner';
 
 -- SCD41: Sensor, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000051-0000-4000-a000-000000000051", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000051-0000-4000-a000-000000000051', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000051-0000-4000-a000-000000000051", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000051-0000-4000-a000-000000000051', tag_id FROM tag WHERE name = '3.3V';
 
 -- TFMini-S LiDAR: Sensor, 5V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000052-0000-4000-a000-000000000052", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000052-0000-4000-a000-000000000052', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000052-0000-4000-a000-000000000052", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000052-0000-4000-a000-000000000052', tag_id FROM tag WHERE name = '5V';
 
 -- MAX30102: Sensor, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000053-0000-4000-a000-000000000053", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000053-0000-4000-a000-000000000053', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000053-0000-4000-a000-000000000053", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000053-0000-4000-a000-000000000053', tag_id FROM tag WHERE name = '3.3V';
 
 -- AS5600: Sensor, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000054-0000-4000-a000-000000000054", "13");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000054-0000-4000-a000-000000000054', tag_id FROM tag WHERE name = 'Sensor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000054-0000-4000-a000-000000000054", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000054-0000-4000-a000-000000000054', tag_id FROM tag WHERE name = '3.3V';
 
 -- RA-02 LoRa: LoRa, Wireless, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000055-0000-4000-a000-000000000055", "15");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000055-0000-4000-a000-000000000055', tag_id FROM tag WHERE name = 'LoRa';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000055-0000-4000-a000-000000000055", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000055-0000-4000-a000-000000000055', tag_id FROM tag WHERE name = 'Wireless';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000055-0000-4000-a000-000000000055", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000055-0000-4000-a000-000000000055', tag_id FROM tag WHERE name = '3.3V';
 
 -- SIM7600G-H: GSM, Wireless, 5V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000056-0000-4000-a000-000000000056", "21");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000056-0000-4000-a000-000000000056', tag_id FROM tag WHERE name = 'GSM';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000056-0000-4000-a000-000000000056", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000056-0000-4000-a000-000000000056', tag_id FROM tag WHERE name = 'Wireless';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000056-0000-4000-a000-000000000056", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000056-0000-4000-a000-000000000056', tag_id FROM tag WHERE name = '5V';
 
 -- HC-12: RF, Wireless
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000057-0000-4000-a000-000000000057", "20");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000057-0000-4000-a000-000000000057', tag_id FROM tag WHERE name = 'RF';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000057-0000-4000-a000-000000000057", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000057-0000-4000-a000-000000000057', tag_id FROM tag WHERE name = 'Wireless';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000057-0000-4000-a000-000000000057", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000057-0000-4000-a000-000000000057', tag_id FROM tag WHERE name = 'Beginner';
 
 -- RYLR896 LoRa: LoRa, Wireless, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000058-0000-4000-a000-000000000058", "15");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000058-0000-4000-a000-000000000058', tag_id FROM tag WHERE name = 'LoRa';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000058-0000-4000-a000-000000000058", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000058-0000-4000-a000-000000000058', tag_id FROM tag WHERE name = 'Wireless';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000058-0000-4000-a000-000000000058", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000058-0000-4000-a000-000000000058', tag_id FROM tag WHERE name = '3.3V';
 
 -- nRF52840: Bluetooth, Wireless, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000059-0000-4000-a000-000000000059", "4");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000059-0000-4000-a000-000000000059', tag_id FROM tag WHERE name = 'Bluetooth';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000059-0000-4000-a000-000000000059", "25");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000059-0000-4000-a000-000000000059', tag_id FROM tag WHERE name = 'Wireless';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000059-0000-4000-a000-000000000059", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000059-0000-4000-a000-000000000059', tag_id FROM tag WHERE name = '3.3V';
 
 -- MG90S: Servo, Motor, 5V, Beginner
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000060-0000-4000-a000-000000000060", "18");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000060-0000-4000-a000-000000000060', tag_id FROM tag WHERE name = 'Servo';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000060-0000-4000-a000-000000000060", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000060-0000-4000-a000-000000000060', tag_id FROM tag WHERE name = 'Motor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000060-0000-4000-a000-000000000060", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000060-0000-4000-a000-000000000060', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000060-0000-4000-a000-000000000060", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000060-0000-4000-a000-000000000060', tag_id FROM tag WHERE name = 'Beginner';
 
 -- DS3218: Servo, Motor, 5V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000061-0000-4000-a000-000000000061", "18");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000061-0000-4000-a000-000000000061', tag_id FROM tag WHERE name = 'Servo';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000061-0000-4000-a000-000000000061", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000061-0000-4000-a000-000000000061', tag_id FROM tag WHERE name = 'Motor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000061-0000-4000-a000-000000000061", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000061-0000-4000-a000-000000000061', tag_id FROM tag WHERE name = '5V';
 
 -- TB6612FNG: Motor, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000062-0000-4000-a000-000000000062", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000062-0000-4000-a000-000000000062', tag_id FROM tag WHERE name = 'Motor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000062-0000-4000-a000-000000000062", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000062-0000-4000-a000-000000000062', tag_id FROM tag WHERE name = '3.3V';
 
 -- PCA9685: Servo, Motor, 3.3V
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000063-0000-4000-a000-000000000063", "18");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000063-0000-4000-a000-000000000063', tag_id FROM tag WHERE name = 'Servo';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000063-0000-4000-a000-000000000063", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000063-0000-4000-a000-000000000063', tag_id FROM tag WHERE name = 'Motor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000063-0000-4000-a000-000000000063", "7");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000063-0000-4000-a000-000000000063', tag_id FROM tag WHERE name = '3.3V';
 
 -- L9110S: Motor, 5V, Beginner
-INSERT INTO
-  sock_tag
-VALUES
-  ("c3000003-0000-4000-a000-000000000003", "16");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c3000003-0000-4000-a000-000000000003', tag_id FROM tag WHERE name = 'Motor';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c3000003-0000-4000-a000-000000000003", "6");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c3000003-0000-4000-a000-000000000003', tag_id FROM tag WHERE name = '5V';
 
-INSERT INTO
-  sock_tag
-VALUES
-  ("c3000003-0000-4000-a000-000000000003", "11");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c3000003-0000-4000-a000-000000000003', tag_id FROM tag WHERE name = 'Beginner';
 
 -- TS101 Soldering Iron: Tool
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000065-0000-4000-a000-000000000065", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000065-0000-4000-a000-000000000065', tag_id FROM tag WHERE name = 'Tool';
 
 -- Bus Pirate: Tool
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000066-0000-4000-a000-000000000066", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000066-0000-4000-a000-000000000066', tag_id FROM tag WHERE name = 'Tool';
 
 -- FNIRSI Oscilloscope: Tool
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000068-0000-4000-a000-000000000068", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000068-0000-4000-a000-000000000068', tag_id FROM tag WHERE name = 'Tool';
 
 -- Anti-Static Tweezers: Tool
-INSERT INTO
-  sock_tag
-VALUES
-  ("c2000069-0000-4000-a000-000000000069", "17");
+INSERT IGNORE INTO sock_tag (sock_id, tag_id)
+  SELECT 'c2000069-0000-4000-a000-000000000069', tag_id FROM tag WHERE name = 'Tool';
 
 -- ═══════════════════════════════════════════════════════
 -- PRODUCT IMAGES TABLE
