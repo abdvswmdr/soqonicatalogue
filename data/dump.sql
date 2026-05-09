@@ -3050,1697 +3050,193 @@ CREATE TABLE IF NOT EXISTS product_images (
 );
 
 -- ── Seed: migrate existing image_url_1 / image_url_2 ─────────────────────────
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'a0a4f044-b040-410d-8ead-4de0446aec7e',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
 
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'a0a4f044-b040-410d-8ead-4de0446aec7e',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    '808a2de1-1aaa-4c25-a9b9-6612e8f29a38',
-    '/catalogue/images/rpi4b.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    '808a2de1-1aaa-4c25-a9b9-6612e8f29a38',
-    '/catalogue/images/rpi4b-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    '510a0d7e-8e83-4193-b483-e27e09ddc34d',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    '510a0d7e-8e83-4193-b483-e27e09ddc34d',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'd3588630-ad8e-49df-bbd7-3167f7efb246',
-    '/catalogue/images/rpi-pico.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'd3588630-ad8e-49df-bbd7-3167f7efb246',
-    '/catalogue/images/rpi-pico-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    '819e1fbf-8b7e-4f6d-811f-693534916a8b',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    '819e1fbf-8b7e-4f6d-811f-693534916a8b',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'zzz4f044-b040-410d-8ead-4de0446aec7e',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'zzz4f044-b040-410d-8ead-4de0446aec7e',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000010-0000-4000-a000-000000000010',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000010-0000-4000-a000-000000000010',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000011-0000-4000-a000-000000000011',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000011-0000-4000-a000-000000000011',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000012-0000-4000-a000-000000000012',
-    '/catalogue/images/rpi4b.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000012-0000-4000-a000-000000000012',
-    '/catalogue/images/rpi4b-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000013-0000-4000-a000-000000000013',
-    '/catalogue/images/rpi-pico.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000013-0000-4000-a000-000000000013',
-    '/catalogue/images/rpi-pico-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000014-0000-4000-a000-000000000014',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000014-0000-4000-a000-000000000014',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000015-0000-4000-a000-000000000015',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000015-0000-4000-a000-000000000015',
-    '/catalogue/images/esp32-devboard.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000016-0000-4000-a000-000000000016',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000016-0000-4000-a000-000000000016',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000017-0000-4000-a000-000000000017',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000017-0000-4000-a000-000000000017',
-    '/catalogue/images/stm32-nucleo.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000018-0000-4000-a000-000000000018',
-    '/catalogue/images/rpi4b-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000018-0000-4000-a000-000000000018',
-    '/catalogue/images/rpi4b.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000019-0000-4000-a000-000000000019',
-    '/catalogue/images/beaglebone-black.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000019-0000-4000-a000-000000000019',
-    '/catalogue/images/beaglebone-black-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000020-0000-4000-a000-000000000020',
-    '/catalogue/images/rpi-pico.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000020-0000-4000-a000-000000000020',
-    '/catalogue/images/rpi-pico-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000021-0000-4000-a000-000000000021',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000021-0000-4000-a000-000000000021',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000022-0000-4000-a000-000000000022',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000022-0000-4000-a000-000000000022',
-    '/catalogue/images/stm32-nucleo.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000023-0000-4000-a000-000000000023',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000023-0000-4000-a000-000000000023',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000024-0000-4000-a000-000000000024',
-    '/catalogue/images/rpi-pico-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000024-0000-4000-a000-000000000024',
-    '/catalogue/images/rpi-pico.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000025-0000-4000-a000-000000000025',
-    '/catalogue/images/stm32-nucleo.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000025-0000-4000-a000-000000000025',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000027-0000-4000-a000-000000000027',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000027-0000-4000-a000-000000000027',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000028-0000-4000-a000-000000000028',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000028-0000-4000-a000-000000000028',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000029-0000-4000-a000-000000000029',
-    '/catalogue/images/products/l298n/l298n-1.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000029-0000-4000-a000-000000000029',
-    '/catalogue/images/products/l298n/l298n-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000030-0000-4000-a000-000000000030',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c1000030-0000-4000-a000-000000000030',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000001-0000-4000-a000-000000000001',
-    '/catalogue/images/rpi-pico.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000001-0000-4000-a000-000000000001',
-    '/catalogue/images/rpi-pico-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000002-0000-4000-a000-000000000002',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000002-0000-4000-a000-000000000002',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000003-0000-4000-a000-000000000003',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000003-0000-4000-a000-000000000003',
-    '/catalogue/images/esp32-devboard.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000004-0000-4000-a000-000000000004',
-    '/catalogue/images/stm32-nucleo.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000004-0000-4000-a000-000000000004',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000005-0000-4000-a000-000000000005',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000005-0000-4000-a000-000000000005',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000006-0000-4000-a000-000000000006',
-    '/catalogue/images/rpi-pico-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000006-0000-4000-a000-000000000006',
-    '/catalogue/images/rpi-pico.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000007-0000-4000-a000-000000000007',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000007-0000-4000-a000-000000000007',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000008-0000-4000-a000-000000000008',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000008-0000-4000-a000-000000000008',
-    '/catalogue/images/stm32-nucleo.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000009-0000-4000-a000-000000000009',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000009-0000-4000-a000-000000000009',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000010-0000-4000-a000-000000000010',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000010-0000-4000-a000-000000000010',
-    '/catalogue/images/esp32-devboard.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000011-0000-4000-a000-000000000011',
-    '/catalogue/images/rpi-pico.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000011-0000-4000-a000-000000000011',
-    '/catalogue/images/rpi-pico-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000012-0000-4000-a000-000000000012',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000012-0000-4000-a000-000000000012',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000014-0000-4000-a000-000000000014',
-    '/catalogue/images/rpi-pico.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000014-0000-4000-a000-000000000014',
-    '/catalogue/images/rpi-pico-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000015-0000-4000-a000-000000000015',
-    '/catalogue/images/stm32-nucleo.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000015-0000-4000-a000-000000000015',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000016-0000-4000-a000-000000000016',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000016-0000-4000-a000-000000000016',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000017-0000-4000-a000-000000000017',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000017-0000-4000-a000-000000000017',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000018-0000-4000-a000-000000000018',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000018-0000-4000-a000-000000000018',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000019-0000-4000-a000-000000000019',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000019-0000-4000-a000-000000000019',
-    '/catalogue/images/esp32-devboard.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000020-0000-4000-a000-000000000020',
-    '/catalogue/images/stm32-nucleo.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000020-0000-4000-a000-000000000020',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000021-0000-4000-a000-000000000021',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000021-0000-4000-a000-000000000021',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000022-0000-4000-a000-000000000022',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000022-0000-4000-a000-000000000022',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000023-0000-4000-a000-000000000023',
-    '/catalogue/images/arduino-mega-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000023-0000-4000-a000-000000000023',
-    '/catalogue/images/arduino-mega.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000024-0000-4000-a000-000000000024',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000024-0000-4000-a000-000000000024',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000025-0000-4000-a000-000000000025',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000025-0000-4000-a000-000000000025',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000026-0000-4000-a000-000000000026',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000026-0000-4000-a000-000000000026',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000027-0000-4000-a000-000000000027',
-    '/catalogue/images/rpi-pico.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000027-0000-4000-a000-000000000027',
-    '/catalogue/images/rpi-pico-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000028-0000-4000-a000-000000000028',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000028-0000-4000-a000-000000000028',
-    '/catalogue/images/stm32-nucleo.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000029-0000-4000-a000-000000000029',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000029-0000-4000-a000-000000000029',
-    '/catalogue/images/esp32-devboard.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000030-0000-4000-a000-000000000030',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000030-0000-4000-a000-000000000030',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000031-0000-4000-a000-000000000031',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000031-0000-4000-a000-000000000031',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000032-0000-4000-a000-000000000032',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000032-0000-4000-a000-000000000032',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000033-0000-4000-a000-000000000033',
-    '/catalogue/images/arduino-mega-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000033-0000-4000-a000-000000000033',
-    '/catalogue/images/arduino-mega.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000034-0000-4000-a000-000000000034',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000034-0000-4000-a000-000000000034',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000035-0000-4000-a000-000000000035',
-    '/catalogue/images/rpi-pico-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000035-0000-4000-a000-000000000035',
-    '/catalogue/images/rpi-pico.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000036-0000-4000-a000-000000000036',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000036-0000-4000-a000-000000000036',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000037-0000-4000-a000-000000000037',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000037-0000-4000-a000-000000000037',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000038-0000-4000-a000-000000000038',
-    '/catalogue/images/rpi-pico.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000038-0000-4000-a000-000000000038',
-    '/catalogue/images/rpi-pico-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000039-0000-4000-a000-000000000039',
-    '/catalogue/images/stm32-nucleo.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000039-0000-4000-a000-000000000039',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000040-0000-4000-a000-000000000040',
-    '/catalogue/images/rpi-pico.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000040-0000-4000-a000-000000000040',
-    '/catalogue/images/rpi-pico-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000041-0000-4000-a000-000000000041',
-    '/catalogue/images/stm32-nucleo.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000041-0000-4000-a000-000000000041',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000042-0000-4000-a000-000000000042',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000042-0000-4000-a000-000000000042',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000043-0000-4000-a000-000000000043',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000043-0000-4000-a000-000000000043',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000044-0000-4000-a000-000000000044',
-    '/catalogue/images/arduino-mega-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000044-0000-4000-a000-000000000044',
-    '/catalogue/images/arduino-mega.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000046-0000-4000-a000-000000000046',
-    '/catalogue/images/rpi4b.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000046-0000-4000-a000-000000000046',
-    '/catalogue/images/rpi4b-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000047-0000-4000-a000-000000000047',
-    '/catalogue/images/rpi4b-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000047-0000-4000-a000-000000000047',
-    '/catalogue/images/rpi4b.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000048-0000-4000-a000-000000000048',
-    '/catalogue/images/beaglebone-black.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000048-0000-4000-a000-000000000048',
-    '/catalogue/images/beaglebone-black-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000049-0000-4000-a000-000000000049',
-    '/catalogue/images/jetson-nano.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000049-0000-4000-a000-000000000049',
-    '/catalogue/images/jetson-nano-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c3000001-0000-4000-a000-000000000001',
-    '/catalogue/images/rpi4b.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c3000001-0000-4000-a000-000000000001',
-    '/catalogue/images/rpi4b-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c3000002-0000-4000-a000-000000000002',
-    '/catalogue/images/beaglebone-black-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c3000002-0000-4000-a000-000000000002',
-    '/catalogue/images/beaglebone-black.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000050-0000-4000-a000-000000000050',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000050-0000-4000-a000-000000000050',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000051-0000-4000-a000-000000000051',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000051-0000-4000-a000-000000000051',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000052-0000-4000-a000-000000000052',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000052-0000-4000-a000-000000000052',
-    '/catalogue/images/stm32-nucleo.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000053-0000-4000-a000-000000000053',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000053-0000-4000-a000-000000000053',
-    '/catalogue/images/esp32-devboard.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000054-0000-4000-a000-000000000054',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000054-0000-4000-a000-000000000054',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000055-0000-4000-a000-000000000055',
-    '/catalogue/images/stm32-nucleo.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000055-0000-4000-a000-000000000055',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000056-0000-4000-a000-000000000056',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000056-0000-4000-a000-000000000056',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000057-0000-4000-a000-000000000057',
-    '/catalogue/images/esp32-devboard.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000057-0000-4000-a000-000000000057',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000058-0000-4000-a000-000000000058',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000058-0000-4000-a000-000000000058',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000059-0000-4000-a000-000000000059',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000059-0000-4000-a000-000000000059',
-    '/catalogue/images/stm32-nucleo.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000060-0000-4000-a000-000000000060',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000060-0000-4000-a000-000000000060',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000061-0000-4000-a000-000000000061',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000061-0000-4000-a000-000000000061',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000062-0000-4000-a000-000000000062',
-    '/catalogue/images/arduino-mega-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000062-0000-4000-a000-000000000062',
-    '/catalogue/images/arduino-mega.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000063-0000-4000-a000-000000000063',
-    '/catalogue/images/stm32-nucleo-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000063-0000-4000-a000-000000000063',
-    '/catalogue/images/stm32-nucleo.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c3000003-0000-4000-a000-000000000003',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c3000003-0000-4000-a000-000000000003',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000065-0000-4000-a000-000000000065',
-    '/catalogue/images/arduino-mega.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000065-0000-4000-a000-000000000065',
-    '/catalogue/images/arduino-mega-2.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000066-0000-4000-a000-000000000066',
-    '/catalogue/images/arduino-uno-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000066-0000-4000-a000-000000000066',
-    '/catalogue/images/arduino-uno.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000068-0000-4000-a000-000000000068',
-    '/catalogue/images/esp32-devboard-2.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000068-0000-4000-a000-000000000068',
-    '/catalogue/images/esp32-devboard.jpg',
-    2
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000069-0000-4000-a000-000000000069',
-    '/catalogue/images/arduino-uno.jpg',
-    1
-  );
-
-INSERT INTO
-  product_images (sock_id, file_path, sort_order)
-VALUES
-  (
-    'c2000069-0000-4000-a000-000000000069',
-    '/catalogue/images/arduino-uno-2.jpg',
-    2
-  );
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('a0a4f044-b040-410d-8ead-4de0446aec7e', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('a0a4f044-b040-410d-8ead-4de0446aec7e', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('808a2de1-1aaa-4c25-a9b9-6612e8f29a38', '/catalogue/images/rpi4b.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('808a2de1-1aaa-4c25-a9b9-6612e8f29a38', '/catalogue/images/rpi4b-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('510a0d7e-8e83-4193-b483-e27e09ddc34d', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('510a0d7e-8e83-4193-b483-e27e09ddc34d', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('d3588630-ad8e-49df-bbd7-3167f7efb246', '/catalogue/images/rpi-pico.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('d3588630-ad8e-49df-bbd7-3167f7efb246', '/catalogue/images/rpi-pico-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('819e1fbf-8b7e-4f6d-811f-693534916a8b', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('819e1fbf-8b7e-4f6d-811f-693534916a8b', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('zzz4f044-b040-410d-8ead-4de0446aec7e', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('zzz4f044-b040-410d-8ead-4de0446aec7e', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000010-0000-4000-a000-000000000010', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000010-0000-4000-a000-000000000010', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000011-0000-4000-a000-000000000011', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000011-0000-4000-a000-000000000011', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000012-0000-4000-a000-000000000012', '/catalogue/images/rpi4b.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000012-0000-4000-a000-000000000012', '/catalogue/images/rpi4b-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000013-0000-4000-a000-000000000013', '/catalogue/images/rpi-pico.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000013-0000-4000-a000-000000000013', '/catalogue/images/rpi-pico-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000014-0000-4000-a000-000000000014', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000014-0000-4000-a000-000000000014', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000015-0000-4000-a000-000000000015', '/catalogue/images/esp32-devboard-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000015-0000-4000-a000-000000000015', '/catalogue/images/esp32-devboard.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000016-0000-4000-a000-000000000016', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000016-0000-4000-a000-000000000016', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000017-0000-4000-a000-000000000017', '/catalogue/images/stm32-nucleo-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000017-0000-4000-a000-000000000017', '/catalogue/images/stm32-nucleo.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000018-0000-4000-a000-000000000018', '/catalogue/images/rpi4b-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000018-0000-4000-a000-000000000018', '/catalogue/images/rpi4b.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000019-0000-4000-a000-000000000019', '/catalogue/images/beaglebone-black.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000019-0000-4000-a000-000000000019', '/catalogue/images/beaglebone-black-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000020-0000-4000-a000-000000000020', '/catalogue/images/rpi-pico.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000020-0000-4000-a000-000000000020', '/catalogue/images/rpi-pico-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000021-0000-4000-a000-000000000021', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000021-0000-4000-a000-000000000021', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000022-0000-4000-a000-000000000022', '/catalogue/images/stm32-nucleo-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000022-0000-4000-a000-000000000022', '/catalogue/images/stm32-nucleo.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000023-0000-4000-a000-000000000023', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000023-0000-4000-a000-000000000023', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000024-0000-4000-a000-000000000024', '/catalogue/images/rpi-pico-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000024-0000-4000-a000-000000000024', '/catalogue/images/rpi-pico.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000025-0000-4000-a000-000000000025', '/catalogue/images/stm32-nucleo.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000025-0000-4000-a000-000000000025', '/catalogue/images/stm32-nucleo-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000027-0000-4000-a000-000000000027', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000027-0000-4000-a000-000000000027', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000028-0000-4000-a000-000000000028', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000028-0000-4000-a000-000000000028', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000029-0000-4000-a000-000000000029', '/catalogue/images/products/l298n/l298n-1.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000029-0000-4000-a000-000000000029', '/catalogue/images/products/l298n/l298n-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000030-0000-4000-a000-000000000030', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c1000030-0000-4000-a000-000000000030', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000001-0000-4000-a000-000000000001', '/catalogue/images/rpi-pico.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000001-0000-4000-a000-000000000001', '/catalogue/images/rpi-pico-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000002-0000-4000-a000-000000000002', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000002-0000-4000-a000-000000000002', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000003-0000-4000-a000-000000000003', '/catalogue/images/esp32-devboard-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000003-0000-4000-a000-000000000003', '/catalogue/images/esp32-devboard.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000004-0000-4000-a000-000000000004', '/catalogue/images/stm32-nucleo.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000004-0000-4000-a000-000000000004', '/catalogue/images/stm32-nucleo-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000005-0000-4000-a000-000000000005', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000005-0000-4000-a000-000000000005', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000006-0000-4000-a000-000000000006', '/catalogue/images/rpi-pico-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000006-0000-4000-a000-000000000006', '/catalogue/images/rpi-pico.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000007-0000-4000-a000-000000000007', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000007-0000-4000-a000-000000000007', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000008-0000-4000-a000-000000000008', '/catalogue/images/stm32-nucleo-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000008-0000-4000-a000-000000000008', '/catalogue/images/stm32-nucleo.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000010-0000-4000-a000-000000000010', '/catalogue/images/esp32-devboard-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000010-0000-4000-a000-000000000010', '/catalogue/images/esp32-devboard.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000011-0000-4000-a000-000000000011', '/catalogue/images/rpi-pico.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000011-0000-4000-a000-000000000011', '/catalogue/images/rpi-pico-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000012-0000-4000-a000-000000000012', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000012-0000-4000-a000-000000000012', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000014-0000-4000-a000-000000000014', '/catalogue/images/rpi-pico.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000014-0000-4000-a000-000000000014', '/catalogue/images/rpi-pico-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000015-0000-4000-a000-000000000015', '/catalogue/images/stm32-nucleo.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000015-0000-4000-a000-000000000015', '/catalogue/images/stm32-nucleo-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000016-0000-4000-a000-000000000016', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000016-0000-4000-a000-000000000016', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000017-0000-4000-a000-000000000017', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000017-0000-4000-a000-000000000017', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000018-0000-4000-a000-000000000018', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000018-0000-4000-a000-000000000018', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000019-0000-4000-a000-000000000019', '/catalogue/images/esp32-devboard-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000019-0000-4000-a000-000000000019', '/catalogue/images/esp32-devboard.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000020-0000-4000-a000-000000000020', '/catalogue/images/stm32-nucleo.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000020-0000-4000-a000-000000000020', '/catalogue/images/stm32-nucleo-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000021-0000-4000-a000-000000000021', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000021-0000-4000-a000-000000000021', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000022-0000-4000-a000-000000000022', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000022-0000-4000-a000-000000000022', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000023-0000-4000-a000-000000000023', '/catalogue/images/arduino-mega-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000023-0000-4000-a000-000000000023', '/catalogue/images/arduino-mega.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000024-0000-4000-a000-000000000024', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000024-0000-4000-a000-000000000024', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000025-0000-4000-a000-000000000025', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000025-0000-4000-a000-000000000025', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000026-0000-4000-a000-000000000026', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000026-0000-4000-a000-000000000026', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000027-0000-4000-a000-000000000027', '/catalogue/images/rpi-pico.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000027-0000-4000-a000-000000000027', '/catalogue/images/rpi-pico-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000028-0000-4000-a000-000000000028', '/catalogue/images/stm32-nucleo-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000028-0000-4000-a000-000000000028', '/catalogue/images/stm32-nucleo.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000029-0000-4000-a000-000000000029', '/catalogue/images/esp32-devboard-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000029-0000-4000-a000-000000000029', '/catalogue/images/esp32-devboard.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000030-0000-4000-a000-000000000030', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000030-0000-4000-a000-000000000030', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000031-0000-4000-a000-000000000031', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000031-0000-4000-a000-000000000031', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000032-0000-4000-a000-000000000032', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000032-0000-4000-a000-000000000032', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000033-0000-4000-a000-000000000033', '/catalogue/images/arduino-mega-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000033-0000-4000-a000-000000000033', '/catalogue/images/arduino-mega.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000034-0000-4000-a000-000000000034', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000034-0000-4000-a000-000000000034', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000035-0000-4000-a000-000000000035', '/catalogue/images/rpi-pico-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000035-0000-4000-a000-000000000035', '/catalogue/images/rpi-pico.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000036-0000-4000-a000-000000000036', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000036-0000-4000-a000-000000000036', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000037-0000-4000-a000-000000000037', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000037-0000-4000-a000-000000000037', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000038-0000-4000-a000-000000000038', '/catalogue/images/rpi-pico.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000038-0000-4000-a000-000000000038', '/catalogue/images/rpi-pico-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000039-0000-4000-a000-000000000039', '/catalogue/images/stm32-nucleo.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000039-0000-4000-a000-000000000039', '/catalogue/images/stm32-nucleo-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000040-0000-4000-a000-000000000040', '/catalogue/images/rpi-pico.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000040-0000-4000-a000-000000000040', '/catalogue/images/rpi-pico-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000041-0000-4000-a000-000000000041', '/catalogue/images/stm32-nucleo.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000041-0000-4000-a000-000000000041', '/catalogue/images/stm32-nucleo-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000042-0000-4000-a000-000000000042', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000042-0000-4000-a000-000000000042', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000043-0000-4000-a000-000000000043', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000043-0000-4000-a000-000000000043', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000044-0000-4000-a000-000000000044', '/catalogue/images/arduino-mega-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000044-0000-4000-a000-000000000044', '/catalogue/images/arduino-mega.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000046-0000-4000-a000-000000000046', '/catalogue/images/rpi4b.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000046-0000-4000-a000-000000000046', '/catalogue/images/rpi4b-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000047-0000-4000-a000-000000000047', '/catalogue/images/rpi4b-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000047-0000-4000-a000-000000000047', '/catalogue/images/rpi4b.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000048-0000-4000-a000-000000000048', '/catalogue/images/beaglebone-black.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000048-0000-4000-a000-000000000048', '/catalogue/images/beaglebone-black-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000049-0000-4000-a000-000000000049', '/catalogue/images/jetson-nano.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000049-0000-4000-a000-000000000049', '/catalogue/images/jetson-nano-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c3000001-0000-4000-a000-000000000001', '/catalogue/images/rpi4b.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c3000001-0000-4000-a000-000000000001', '/catalogue/images/rpi4b-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c3000002-0000-4000-a000-000000000002', '/catalogue/images/beaglebone-black-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c3000002-0000-4000-a000-000000000002', '/catalogue/images/beaglebone-black.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000050-0000-4000-a000-000000000050', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000050-0000-4000-a000-000000000050', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000051-0000-4000-a000-000000000051', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000051-0000-4000-a000-000000000051', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000052-0000-4000-a000-000000000052', '/catalogue/images/stm32-nucleo-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000052-0000-4000-a000-000000000052', '/catalogue/images/stm32-nucleo.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000053-0000-4000-a000-000000000053', '/catalogue/images/esp32-devboard-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000053-0000-4000-a000-000000000053', '/catalogue/images/esp32-devboard.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000054-0000-4000-a000-000000000054', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000054-0000-4000-a000-000000000054', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000055-0000-4000-a000-000000000055', '/catalogue/images/stm32-nucleo.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000055-0000-4000-a000-000000000055', '/catalogue/images/stm32-nucleo-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000056-0000-4000-a000-000000000056', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000056-0000-4000-a000-000000000056', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000057-0000-4000-a000-000000000057', '/catalogue/images/esp32-devboard.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000057-0000-4000-a000-000000000057', '/catalogue/images/esp32-devboard-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000058-0000-4000-a000-000000000058', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000058-0000-4000-a000-000000000058', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000059-0000-4000-a000-000000000059', '/catalogue/images/stm32-nucleo-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000059-0000-4000-a000-000000000059', '/catalogue/images/stm32-nucleo.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000060-0000-4000-a000-000000000060', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000060-0000-4000-a000-000000000060', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000061-0000-4000-a000-000000000061', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000061-0000-4000-a000-000000000061', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000062-0000-4000-a000-000000000062', '/catalogue/images/arduino-mega-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000062-0000-4000-a000-000000000062', '/catalogue/images/arduino-mega.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000063-0000-4000-a000-000000000063', '/catalogue/images/stm32-nucleo-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000063-0000-4000-a000-000000000063', '/catalogue/images/stm32-nucleo.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c3000003-0000-4000-a000-000000000003', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c3000003-0000-4000-a000-000000000003', '/catalogue/images/arduino-uno-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000065-0000-4000-a000-000000000065', '/catalogue/images/arduino-mega.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000065-0000-4000-a000-000000000065', '/catalogue/images/arduino-mega-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000066-0000-4000-a000-000000000066', '/catalogue/images/arduino-uno-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000066-0000-4000-a000-000000000066', '/catalogue/images/arduino-uno.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000068-0000-4000-a000-000000000068', '/catalogue/images/esp32-devboard-2.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000068-0000-4000-a000-000000000068', '/catalogue/images/esp32-devboard.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000069-0000-4000-a000-000000000069', '/catalogue/images/arduino-uno.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000069-0000-4000-a000-000000000069', '/catalogue/images/arduino-uno-2.jpg', 2);
 
 -- ── L298N: additional real product images (sort_order 3-6) ────────────────────
 INSERT INTO
@@ -5058,3 +3554,10 @@ CREATE TABLE IF NOT EXISTS users (
   UNIQUE KEY users_username_uk (username),
   UNIQUE KEY users_email_uk (email)
 );
+
+-- image insert: FC-37 Rain Sensor Detection Module (fc37)
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-1.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-3.jpg', 3);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-4.jpg', 4);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-5.jpg', 5);
