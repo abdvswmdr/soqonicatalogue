@@ -2461,6 +2461,7 @@ CREATE TABLE IF NOT EXISTS product_images (
   file_path varchar(200) NOT NULL,
   sort_order INT NOT NULL DEFAULT 1,
   PRIMARY KEY (id),
+  UNIQUE KEY uq_product_image (sock_id, sort_order),
   FOREIGN KEY (sock_id) REFERENCES sock (sock_id)
 );
 
