@@ -64,7 +64,7 @@ var ErrNotFound = errors.New("not found")
 // ErrDBConnection is returned when connection with the database fails.
 var ErrDBConnection = errors.New("database connection error")
 
-var baseQuery = "SELECT sock.sock_id AS id, sock.name, sock.description, sock.price, sock.count, (SELECT GROUP_CONCAT(file_path ORDER BY sort_order SEPARATOR ',') FROM product_images WHERE sock_id=sock.sock_id) AS image_paths, GROUP_CONCAT(tag.name) AS tag_name FROM sock JOIN sock_tag ON sock.sock_id=sock_tag.sock_id JOIN tag ON sock_tag.tag_id=tag.tag_id"
+var baseQuery = "SELECT sock.sock_id AS id, sock.name, sock.description, sock.price, sock.count, COALESCE((SELECT GROUP_CONCAT(file_path ORDER BY sort_order SEPARATOR ',') FROM product_images WHERE sock_id=sock.sock_id), '') AS image_paths, GROUP_CONCAT(tag.name) AS tag_name FROM sock JOIN sock_tag ON sock.sock_id=sock_tag.sock_id JOIN tag ON sock_tag.tag_id=tag.tag_id"
 
 // NewCatalogueService returns an implementation of the Service interface,
 // with connection to an SQL database.
