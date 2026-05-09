@@ -2,134 +2,257 @@
 
 * soqonicatalogue
 
-Go 1.25 microservice providing the product catalogue REST API for the [[https://github.com/abdvswmdr/soqoni][Soqoni]] e-commerce platform. Backed by MySQL with a many-to-many product/tag schema. Ships as a ~15MB Alpine Linux container via multi-stage build.
+Go 1.25 production microservice providing the product catalogue REST API for the [[https://github.com/abdvswmdr/soqoni][Soqoni]] e-commerce platform. Demonstrates modern backend best practices: clean architecture (go-kit), enterprise observability, secure containerization, and Kubernetes-native design.
 
 #+attr_html: :width 900px :align center :alt "Catalogue API demo"
 [[file:docs/demo.gif]]
 
 ** Contents
 
-- [[#features][Features]]
-- [[#api][API]]
-- [[#architecture][Architecture]]
-- [[#quickstart][Quickstart]]
-- [[#environment-variables][Environment Variables]]
-- [[#build][Build]]
+- [[#highlights][Engineering Highlights]]
+- [[#architecture][System Architecture]]
+- [[#api][API Specification]]
+- [[#observability][Observability & Monitoring]]
+- [[#security][Security & Compliance]]
+- [[#performance][Performance & Reliability]]
+- [[#deployment][Deployment & DevOps]]
 - [[#development][Development]]
-- [[#database-schema][Database Schema]]
-- [[#cicd][CI/CD]]
-- [[#roadmap][Roadmap]]
+- [[#cicd][CI/CD Pipeline]]
 - [[#license][License]]
 
-** Features
+** Engineering Highlights
 
-- Pure Go HTTP server — no framework overhead, sub-15MB production image
-- Tag-based product filtering with many-to-many SQL schema
-- Multi-stage Docker build: ~golang:1.25~ builder → ~alpine:3.19~ runtime
-- Vendored dependencies — reproducible builds without network access
-- Readiness and liveness probes for zero-downtime Kubernetes rolling updates
-- Kubernetes-native: ClusterIP service, Ingress routing, HPA-ready
+*** Clean Architecture Pattern
+- **Go-kit framework**: Domain → Endpoint → Transport layer separation
+- Service middleware stack: logging, tracing, and error handling baked in
+- Endpoint-level circuit breakers (30s timeout) with Sony Gobreaker
+- Type-safe error handling with structured error types
 
-** API
+*** Enterprise Observability
+- **Prometheus metrics**: ~request_duration_seconds~, ~inflight_requests~, request/response body sizes by route
+- **Structured logging**: Timestamp, caller location, method execution time tracking
+- **Distributed tracing**: OpenTracing integration ready (Jaeger/Zipkin compatible)
+- ~GET /metrics~ endpoint for Prometheus scraping
 
-| Endpoint | Method | Description |
-|---|---|---|
-| ~/catalogue~ | GET | List products (~?tags=~, ~?page=~, ~?size=~ supported) |
-| ~/catalogue/{id}~ | GET | Get product by ID |
-| ~/catalogue/size~ | GET | Total product count |
-| ~/catalogue/tags~ | GET | All available tags |
-| ~/health~ | GET | Liveness check |
+*** Security & Compliance
+- Non-root user execution (UID 10001) with restricted shell (~sbin/nologin~)
+- Multi-stage Docker build: ~golang:1.25~ builder → ~alpine:3.19~ runtime (~15MB image)
+- Vendored dependencies via ~go mod vendor~ — reproducible builds, no network dependency
+- TLS-ready with proper error responses
+
+*** DevOps Excellence
+- Kubernetes-native: health probes, graceful shutdown, signal handling
+- Environment-driven configuration (DSN, port, image path)
+- Database connection pooling via sqlx with error recovery
+- Zero-downtime deployment support
+
+** API Specification
+
+Standard REST endpoints with query parameter support for filtering, pagination, and multi-currency pricing.
+
+| Endpoint | Method | Purpose | Query Parameters |
+|---|---|---|---|
+| ~/catalogue~ | GET | List products with optional filtering | ~?tags=~, ~?page=~, ~?size=~, ~?currency=~ (USD/EUR/KES), ~?order=~ |
+| ~/catalogue/{id}~ | GET | Fetch product by ID with pricing | ~?currency=~ (USD/EUR/KES) |
+| ~/catalogue/size~ | GET | Total product count | ~?tags=~ |
+| ~/tags~ | GET | Available product tags | — |
+| ~/health~ | GET | Liveness & readiness probe | — |
+| ~/metrics~ | GET | Prometheus metrics export | — |
+| ~/catalogue/{id}/stock~ | PUT | Decrement product stock | — |
+
+*** Example Requests
 
 #+BEGIN_SRC bash
-# List all products
-curl http://localhost:80/catalogue
+# List all products with pagination
+curl 'http://localhost/catalogue?page=1&size=10'
 
-# Filter by tag
-curl 'http://localhost:80/catalogue?tags=iot'
+# Filter by tags and currency
+curl 'http://localhost/catalogue?tags=iot,premium&currency=EUR'
 
-# Health check
-curl http://localhost:80/health
+# Product details with KES pricing
+curl 'http://localhost/catalogue/507f1f77-bcf8-4fad-a26f-df9fdf8dcf0c?currency=KES'
+
+# Service health check
+curl http://localhost/health
+
+# Prometheus metrics
+curl http://localhost/metrics
 #+END_SRC
 
-** Architecture
+** System Architecture
 
-#+attr_html: :width 900px :align center :alt "Catalogue service architecture"
-[[file:docs/architecture.png]]
+Three-tier microservice architecture with clear separation of concerns:
 
-#+BEGIN_COMMENT
-PlantUML diagram coming soon.
-  soqonifrontend → GET /catalogue/* → soqonicatalogue:80 → MySQL (socksdb)
-  Tables: sock, tag, sock_tag (junction — many-to-many)
-#+END_COMMENT
+- **Transport Layer** (HTTP): Request/response marshaling, route matching, middleware chaining
+- **Endpoint Layer**: Endpoint composition, circuit breaker injection, distributed tracing hooks
+- **Service Layer**: Business logic, database queries, currency conversion
 
-** Quickstart
+Database schema: normalized many-to-many design (sock ↔ sock_tag ↔ tag) for flexible tagging.
 
+** Observability & Monitoring
+
+*** Prometheus Metrics
+Exposed at ~GET /metrics~ for Prometheus scraping:
+
+- ~request_duration_seconds~: Histogram of request latency by method, route, status code
+- ~inflight_requests~: Gauge of concurrent request count by method and route
+- ~request_body_size_bytes~: Request payload size distribution
+- ~response_body_size_bytes~: Response payload size distribution
+
+*** Structured Logging
+Every method invocation logs:
+- Method name, parameters (tags, IDs, currency)
+- Result count and execution time (microsecond precision)
+- Error information with type
+
+Example:
+#+BEGIN_SRC
+method=List tags="iot,premium" pageNum=1 pageSize=20 currency=EUR result=15 took=45.2ms
+method=Get id=507f1f77-bcf8-4fad-a26f-df9fdf8dcf0c currency=USD took=12.1ms
+#+END_SRC
+
+*** Distributed Tracing
+OpenTracing integration with per-endpoint span creation (Jaeger-compatible):
+- All 6 endpoints emit traces with operation names: ~GET /catalogue~, ~GET /catalogue/{id}~, etc.
+- TODO: Enable Zipkin collector with openzipkin-contrib update
+
+** Security & Compliance
+
+*** Container Security
+- **Non-root execution**: UID 10001 (unprivileged user) with nologin shell
+- **Minimal base image**: alpine:3.19 (~15MB) eliminates attack surface
+- **No privilege escalation**: Strict USER directive in Dockerfile-release
+- **Read-only artifacts**: Binary and image assets owned by service user
+
+*** Reproducible Builds
+- Vendored dependencies (~vendor/~) with locked transitive versions
+- Go 1.25 with explicit module checksums (go.sum)
+- Multi-stage build avoids shipping build tools to production
+- Deterministic binary: ~CGO_ENABLED=0 GOOS=linux~
+
+*** Error Handling
+- Structured error types: ~ErrNotFound~, ~ErrDBConnection~
+- Proper HTTP status codes: 404 for missing products, 500 for DB errors
+- Sanitized error responses (no internal stack traces)
+
+** Performance & Reliability
+
+*** Circuit Breaker Pattern
+Sony Gobreaker on every endpoint with 30-second timeout:
+- Prevents cascading failures on database issues
+- Auto-resets after cooldown period
+- Applies to: List, Get, Count, Tags, DecrementStock endpoints
+
+*** Connection Pooling
+- sqlx.DB provides efficient MySQL connection reuse
+- DB ping on startup validates connectivity (logs but doesn't fail)
+- Configurable DSN supports connection string tuning
+
+*** API Query Optimization
+- Joins with GROUP_CONCAT for many-to-many product/tag relationships
+- Indexed lookup by sock_id and tag_id
+- Pagination support (offset/limit) for large result sets
+
+** Deployment & DevOps
+
+*** Container Image
 #+BEGIN_SRC bash
+# Production image (~15MB)
 docker run -p 8080:80 \
-  -e ZIPKIN_ENABLED=false \
-  -e DSN="user:pass@tcp(localhost:3306)/socksdb" \
+  -e DSN="user:pass@tcp(db.example.com:3306)/socksdb" \
   abdvswmdr/soqonicatalogue:latest
 #+END_SRC
 
-A MySQL 5.7 instance with the ~socksdb~ schema is required. See [[file:docker/soqonicatalogue-db][docker/soqonicatalogue-db]] for the database image with seed data.
+Environment variables:
 
-** Environment Variables
-
-| Variable | Default | Description |
+| Variable | Default | Purpose |
 |---|---|---|
-| ~DSN~ | — | MySQL DSN: ~user:pass@tcp(host:3306)/db~ |
-| ~PORT~ | ~80~ | Port this service listens on |
-| ~ZIPKIN_ENABLED~ | ~false~ | Enable Zipkin distributed tracing |
-| ~ZIPKIN_HOST~ | ~zipkin~ | Zipkin server hostname |
+| ~DSN~ | — (required) | MySQL connection: ~user:pass@tcp(host:3306)/db~ |
+| ~PORT~ | ~80~ | HTTP listening port |
 
-** Build
+*** Kubernetes Integration
+- Health endpoint (~/health~) for kubelet probes
+- Graceful shutdown: traps SIGINT and SIGTERM
+- Stateless design: horizontally scalable with ClusterIP Service
+- Zero-downtime rolling updates supported
 
+*** Build & Publish
 #+BEGIN_SRC bash
-# Run tests
-go test ./...
+# Build dev image with full dependencies
+docker build -f docker/soqonicatalogue/Dockerfile -t soqonicatalogue:dev .
 
-# Build production image with versioned tag
-TAG=$(git rev-parse --short HEAD)
-docker build -t abdvswmdr/soqonicatalogue:$TAG \
-  -f docker/soqonicatalogue/Dockerfile-release .
-docker push abdvswmdr/soqonicatalogue:$TAG
+# Build release image (production-optimized)
+docker build -f docker/soqonicatalogue/Dockerfile-release -t abdvswmdr/soqonicatalogue:v1.0.0 .
+
+# Push to Docker Hub
+docker push abdvswmdr/soqonicatalogue:v1.0.0
 #+END_SRC
 
 ** Development
 
+*** Prerequisites
+- Go 1.25+
+- MySQL 5.7+
+- Docker & Docker Compose (for local testing)
+
+*** Setup
 #+BEGIN_SRC bash
 git clone https://github.com/abdvswmdr/soqonicatalogue
 cd soqonicatalogue
 go mod download
 
-# Run against a local MySQL instance
-DSN="catalogue_user:pass@tcp(localhost:3306)/socksdb" go run cmd/cataloguesvc/main.go
+# Start MySQL with seed data
+docker compose up -d catalogue-db
+
+# Run service locally
+DSN="catalogue_user:default_password@tcp(localhost:3306)/socksdb" go run cmd/cataloguesvc/main.go -port=8081
+
+# Test endpoints
+curl http://localhost:8081/catalogue
+curl http://localhost:8081/health
 #+END_SRC
 
-Requires Go 1.25+.
+*** Running Tests
+#+BEGIN_SRC bash
+# Unit tests
+go test ./...
 
-** Database Schema
+# Integration tests (requires docker)
+docker compose -f docker-compose.yml up
+go test -v -tags=integration ./...
+#+END_SRC
 
-#+attr_html: :width 600px :align center :alt "ER diagram"
-[[file:docs/er-diagram.png]]
+*** Project Layout
+- ~cmd/cataloguesvc/main.go~: Service initialization, flag parsing, middleware composition
+- ~service.go~: Business logic, database queries, currency conversion
+- ~endpoints.go~: Endpoint definitions with OpenTracing hooks
+- ~transport.go~: HTTP handler, request/response marshaling, circuit breakers
+- ~logging.go~: Middleware for structured logging
+- ~docker/~: Multi-stage Dockerfile and database setup
+- ~test/~: Integration test suites (Python + Docker)
 
-#+BEGIN_COMMENT
-PlantUML ER diagram coming soon.
-#+END_COMMENT
+** CI/CD Pipeline
 
-Three tables in the ~socksdb~ database:
+Jenkins pipeline (~Jenkinsfile~) on every push to main branch:
 
-- ~sock~ — product records (id, name, description, price, count, image_url)
-- ~tag~ — product tags
-- ~sock_tag~ — junction table for the many-to-many product/tag relationship
+1. **Build** — Compile dev image with Go toolchain
+   - ~docker build -f docker/soqonicatalogue/Dockerfile .~
 
-** CI/CD
+2. **Test** — Unit tests in containerized environment
+   - ~docker run ... go test ./...~
+   - ~docker compose~ integration tests
 
-Jenkins pipeline (~Jenkinsfile~) runs on every push to ~main~:
+3. **Package** — Optimize release image
+   - ~docker build -f docker/soqonicatalogue/Dockerfile-release .~
+   - Apply git SHA as image tag
 
-1. *Test* — ~go test ./...~
-2. *Build* — ~go build~ + ~docker build~ with git SHA tag
-3. *Push* — ~docker push~ to [[https://hub.docker.com/r/abdvswmdr/soqonicatalogue][Docker Hub]]
+4. **Push** — Publish to Docker Hub
+   - ~docker push abdvswmdr/soqonicatalogue:${GIT_COMMIT}~
+
+Environment variables:
+- ~GROUP~: Docker registry namespace (abdvswmdr)
+- ~REPO~: Repository name (soqonicatalogue)
+- ~COMMIT~: Git short SHA for versioning
 
 ** License
 
