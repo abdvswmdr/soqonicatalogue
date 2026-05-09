@@ -739,8 +739,6 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000007-00
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000007-0000-4000-a000-000000000007', '/catalogue/images/esp32-devboard-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000008-0000-4000-a000-000000000008', '/catalogue/images/stm32-nucleo-2.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000008-0000-4000-a000-000000000008', '/catalogue/images/stm32-nucleo.jpg', 2);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/arduino-uno.jpg', 1);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/arduino-uno-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000010-0000-4000-a000-000000000010', '/catalogue/images/esp32-devboard-2.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000010-0000-4000-a000-000000000010', '/catalogue/images/esp32-devboard.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000011-0000-4000-a000-000000000011', '/catalogue/images/rpi-pico.jpg', 1);
@@ -920,3 +918,10 @@ CREATE TABLE IF NOT EXISTS users (
     UNIQUE KEY users_username_uk (username),
     UNIQUE KEY users_email_uk (email)
 );
+
+-- image insert: FC-37 Rain Sensor Detection Module (fc37)
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-1.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-3.jpg', 3);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-4.jpg', 4);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-5.jpg', 5);
