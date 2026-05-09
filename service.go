@@ -216,7 +216,7 @@ func (s *catalogueService) Health() []Health {
 
 func (s *catalogueService) Tags() ([]string, error) {
 	var tags []string
-	query := "SELECT name FROM tag;"
+	query := "SELECT DISTINCT name FROM tag ORDER BY name;"
 	rows, err := s.db.Query(query)
 	if err != nil {
 		s.logger.Log("database error", err)
