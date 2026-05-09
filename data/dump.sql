@@ -3113,8 +3113,6 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000004-00
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000004-0000-4000-a000-000000000004', '/catalogue/images/stm32-nucleo-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000005-0000-4000-a000-000000000005', '/catalogue/images/arduino-uno-2.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000005-0000-4000-a000-000000000005', '/catalogue/images/arduino-uno.jpg', 2);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000006-0000-4000-a000-000000000006', '/catalogue/images/rpi-pico-2.jpg', 1);
-INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000006-0000-4000-a000-000000000006', '/catalogue/images/rpi-pico.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000007-0000-4000-a000-000000000007', '/catalogue/images/esp32-devboard.jpg', 1);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000007-0000-4000-a000-000000000007', '/catalogue/images/esp32-devboard-2.jpg', 2);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000008-0000-4000-a000-000000000008', '/catalogue/images/stm32-nucleo-2.jpg', 1);
@@ -3561,3 +3559,8 @@ INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-00
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-3.jpg', 3);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-4.jpg', 4);
 INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000009-0000-4000-a000-000000000009', '/catalogue/images/products/fc37/fc37-5.jpg', 5);
+
+-- image insert: KY-040 Rotary Encoder Module 20 Pulses/Rev (rotary-ky040)
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000006-0000-4000-a000-000000000006', '/catalogue/images/products/rotary-ky040/rotary-ky040-1.jpg', 1);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000006-0000-4000-a000-000000000006', '/catalogue/images/products/rotary-ky040/rotary-ky040-2.jpg', 2);
+INSERT INTO product_images (sock_id, file_path, sort_order) VALUES ('c2000006-0000-4000-a000-000000000006', '/catalogue/images/products/rotary-ky040/rotary-ky040-3.jpg', 3);
