@@ -5,11 +5,15 @@
 
 SET FOREIGN_KEY_CHECKS = 0;
 
+TRUNCATE TABLE product_images;
 TRUNCATE TABLE sock_tag;
 TRUNCATE TABLE tag;
 
 SET FOREIGN_KEY_CHECKS = 1;
 
--- After running this, apply the full dump.sql which now uses:
---   INSERT IGNORE INTO tag  (safe with UNIQUE constraint)
---   INSERT IGNORE INTO sock_tag ... SELECT tag_id FROM tag WHERE name = '...'
+-- Ensure idempotency constraints exist (safe to run even if already present)
+ALTER TABLE tag ADD UNIQUE KEY IF NOT EXISTS uq_tag_name (name);
+ALTER TABLE product_images ADD UNIQUE KEY IF NOT EXISTS uq_product_image (sock_id, sort_order);
+
+-- After running this, apply only the INSERT lines from dump.sql:
+--   grep "INSERT IGNORE INTO" dump.sql | mysql ... socksdb
