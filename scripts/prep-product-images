@@ -1,0 +1,231 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+CATALOGUE_IMAGES_DIR="$REPO_ROOT/images/products"
+DUMP_SQL="$REPO_ROOT/data/dump.sql"
+DOCKER_DUMP="$REPO_ROOT/docker/soqonicatalogue-db/data/dump.sql"
+
+AZURE_MYSQL_HOST="${AZURE_MYSQL_HOST:-soqoni-mysql.mysql.database.azure.com}"
+AZURE_MYSQL_USER="${AZURE_MYSQL_USER:-catalogueadmin}"
+AZURE_MYSQL_DB="${AZURE_MYSQL_DB:-socksdb}"
+
+usage() {
+    echo "Usage: prep-product-images [DIRECTORY]"
+    echo "  Renames downloaded product images to {slug}-1.jpg, {slug}-2.jpg ..."
+    echo "  moves them to soqonicatalogue/images/products/{slug}/"
+    echo "  patches dump.sql, and optionally applies to Azure MySQL."
+    echo ""
+    echo "  DIRECTORY  folder containing downloaded images (default: current dir)"
+    echo ""
+    echo "  Env overrides:"
+    echo "    AZURE_MYSQL_HOST  (default: $AZURE_MYSQL_HOST)"
+    echo "    AZURE_MYSQL_USER  (default: $AZURE_MYSQL_USER)"
+    echo "    AZURE_MYSQL_DB    (default: $AZURE_MYSQL_DB)"
+    echo "    AZURE_MYSQL_PASS  password (skips interactive prompt if set)"
+}
+
+[[ "${1:-}" == "-h" || "${1:-}" == "--help" ]] && { usage; exit 0; }
+
+SRC_DIR="${1:-.}"
+SRC_DIR="$(realpath "$SRC_DIR")"
+
+if [[ ! -d "$SRC_DIR" ]]; then
+    echo "error: '$SRC_DIR' is not a directory" >&2
+    exit 1
+fi
+
+# ── Collect image files, natural sort ────────────────────────────────────────
+mapfile -d '' FILES < <(find "$SRC_DIR" -maxdepth 1 -type f \
+    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
+    -print0 | sort -zV)
+
+if [[ ${#FILES[@]} -eq 0 ]]; then
+    echo "error: no image files found in '$SRC_DIR'" >&2
+    exit 1
+fi
+
+echo "Found ${#FILES[@]} image(s) in: $SRC_DIR"
+echo ""
+
+# ── Ask for slug ─────────────────────────────────────────────────────────────
+read -rp "Product slug (e.g. l298n, sg90, bme280): " SLUG
+SLUG="${SLUG// /-}"
+SLUG="${SLUG,,}"
+
+if [[ -z "$SLUG" ]]; then
+    echo "error: slug cannot be empty" >&2
+    exit 1
+fi
+
+DEST_DIR="$CATALOGUE_IMAGES_DIR/$SLUG"
+
+echo ""
+echo "Preview — files will be renamed and moved to: $DEST_DIR"
+echo ""
+
+i=1
+declare -a PLAN_SRC=()
+declare -a PLAN_DEST=()
+FINAL_EXT="jpg"
+for f in "${FILES[@]}"; do
+    ext="${f##*.}"
+    ext="${ext,,}"
+    [[ "$ext" == "jpeg" ]] && ext="jpg"
+    new_name="${SLUG}-${i}.${ext}"
+    printf "  %-40s →  %s\n" "$(basename "$f")" "$new_name"
+    PLAN_SRC+=("$f")
+    PLAN_DEST+=("$DEST_DIR/$new_name")
+    FINAL_EXT="$ext"
+    ((i++))
+done
+
+echo ""
+read -rp "Proceed? [y/N] " CONFIRM
+[[ "${CONFIRM,,}" != "y" ]] && { echo "Aborted."; exit 0; }
+
+mkdir -p "$DEST_DIR"
+for idx in "${!PLAN_SRC[@]}"; do
+    src="${PLAN_SRC[$idx]}"
+    dest="${PLAN_DEST[$idx]}"
+    if [[ "$src" == "$dest" ]]; then
+        echo "  skipped (same path): $(basename "$dest")"
+    else
+        mv -- "$src" "$dest"
+        echo "  moved: $(basename "$dest")"
+    fi
+done
+
+echo ""
+echo "Images ready."
+
+# ── Patch dump.sql ────────────────────────────────────────────────────────────
+if [[ ! -f "$DUMP_SQL" ]]; then
+    echo "warning: dump.sql not found at $DUMP_SQL — skipping DB patch"
+    exit 0
+fi
+
+echo ""
+read -rp "Patch dump.sql now? [y/N] " PATCH_CONFIRM
+[[ "${PATCH_CONFIRM,,}" != "y" ]] && { echo "Done (dump.sql unchanged)."; exit 0; }
+
+echo ""
+echo "Products in dump.sql:"
+echo ""
+
+mapfile -t PROD_IDS < <(grep -oP '^\s+"\K[0-9a-f-]{36}' "$DUMP_SQL")
+mapfile -t PROD_NAMES < <(awk '/^\s+"[0-9a-f-]{36}",/{getline; gsub(/^\s+"|",\s*$/, ""); print}' "$DUMP_SQL")
+
+if [[ ${#PROD_IDS[@]} -eq 0 ]]; then
+    echo "error: could not parse products from $DUMP_SQL" >&2
+    exit 1
+fi
+
+for idx in "${!PROD_NAMES[@]}"; do
+    printf "  %3d)  %s\n" "$((idx+1))" "${PROD_NAMES[$idx]}"
+done
+
+echo ""
+read -rp "Pick product number: " PICK
+PICK=$((PICK - 1))
+
+if [[ $PICK -lt 0 || $PICK -ge ${#PROD_IDS[@]} ]]; then
+    echo "error: invalid selection" >&2
+    exit 1
+fi
+
+SOCK_ID="${PROD_IDS[$PICK]}"
+PROD_NAME="${PROD_NAMES[$PICK]}"
+
+echo ""
+echo "Selected: $PROD_NAME  (sock_id: $SOCK_ID)"
+echo ""
+
+existing=$(grep -c "product_images.*'${SOCK_ID}'" "$DUMP_SQL" 2>/dev/null || true)
+REPLACE=false
+if [[ $existing -gt 0 ]]; then
+    echo "  $existing existing product_images row(s) found for this product."
+    read -rp "  Replace all existing rows? [Y/n] " REPLACE_CONFIRM
+    [[ "${REPLACE_CONFIRM,,}" != "n" ]] && REPLACE=true
+fi
+
+START_ORDER=1
+
+echo "  Images to insert (sort_order 1+):"
+declare -a NEW_SQL=()
+for idx in "${!PLAN_DEST[@]}"; do
+    order=$((START_ORDER + idx))
+    rel="/catalogue/images/products/${SLUG}/$(basename "${PLAN_DEST[$idx]}")"
+    printf "    %d  %s\n" "$order" "$rel"
+    NEW_SQL+=("INSERT IGNORE INTO product_images (sock_id, file_path, sort_order) VALUES ('${SOCK_ID}', '${rel}', ${order});")
+done
+
+echo ""
+read -rp "Write to dump.sql? [y/N] " WRITE_CONFIRM
+[[ "${WRITE_CONFIRM,,}" != "y" ]] && { echo "Done (dump.sql unchanged)."; exit 0; }
+
+if [[ "$REPLACE" == "true" && $existing -gt 0 ]]; then
+    grep -v "product_images.*'${SOCK_ID}'" "$DUMP_SQL" > "${DUMP_SQL}.tmp" \
+        && mv "${DUMP_SQL}.tmp" "$DUMP_SQL"
+    echo "  Removed $existing existing rows."
+fi
+
+{
+    echo ""
+    echo "-- image insert: $PROD_NAME ($SLUG)"
+    for sql in "${NEW_SQL[@]}"; do
+        echo "$sql"
+    done
+} >> "$DUMP_SQL"
+
+if [[ -f "$DOCKER_DUMP" ]]; then
+    cp "$DUMP_SQL" "$DOCKER_DUMP"
+    echo "  Synced to $DOCKER_DUMP"
+fi
+
+echo ""
+echo "Patched $DUMP_SQL."
+
+# ── Apply to Azure MySQL ──────────────────────────────────────────────────────
+echo ""
+echo "─────────────────────────────────────────"
+echo "Apply new rows to Azure MySQL Flexible Server?"
+echo "  Host: $AZURE_MYSQL_HOST"
+echo "  User: $AZURE_MYSQL_USER  DB: $AZURE_MYSQL_DB"
+echo "─────────────────────────────────────────"
+read -rp "Apply to Azure? [y/N] " AZURE_CONFIRM
+
+if [[ "${AZURE_CONFIRM,,}" != "y" ]]; then
+    echo ""
+    echo "Skipped. To apply manually:"
+    for sql in "${NEW_SQL[@]}"; do echo "  $sql"; done
+    exit 0
+fi
+
+if [[ -z "${AZURE_MYSQL_PASS:-}" ]]; then
+    read -rsp "MySQL password for $AZURE_MYSQL_USER: " AZURE_MYSQL_PASS
+    echo ""
+fi
+
+SQL_BLOCK=""
+if [[ "$REPLACE" == "true" && $existing -gt 0 ]]; then
+    SQL_BLOCK+="DELETE FROM product_images WHERE sock_id = '${SOCK_ID}';"$'\n'
+fi
+for sql in "${NEW_SQL[@]}"; do
+    SQL_BLOCK+="${sql}"$'\n'
+done
+
+echo "$SQL_BLOCK" | mysql \
+    --host="$AZURE_MYSQL_HOST" \
+    --user="$AZURE_MYSQL_USER" \
+    --password="$AZURE_MYSQL_PASS" \
+    --ssl-mode=REQUIRED \
+    "$AZURE_MYSQL_DB"
+
+echo ""
+echo "Applied to Azure MySQL."
+echo ""
+echo "Next: rebuild and push the catalogue image so new image files are live:"
+echo "  cd $REPO_ROOT && ./scripts/build-and-push.sh"
+echo "  kubectl config use-context soqoni-aks"
+echo "  kubectl apply -f ~/soqoni-k8s/catalogue.yaml"
